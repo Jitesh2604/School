@@ -84,7 +84,7 @@ const features = [
 const FeaturesSection = () => (
   <section className="section-padding bg-muted/50">
     <div className="container-wide mx-auto">
-      <SectionHeading badge="Why Choose Us" title="Built Around Your Child's Happiness" description="We combine safety, creativity, and expert care to give your child the best start in life." />
+      <SectionHeading badge="Why Choose Us ?" title="Built Around Your Child's Happiness" description="We combine safety, creativity, and expert care to give your child the best start in life." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f, i) => (
           <ScrollReveal key={f.title} delay={i * 80}>
