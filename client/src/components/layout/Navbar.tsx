@@ -20,6 +20,7 @@ const navLinks = [
   { label: "Gallery", to: "/gallery" },
   { label: "Activities", to: "/activities" },
   { label: "Contact", to: "/contact" },
+  { label: "Admin", to: "/admin" },
 ];
 
 const Navbar = () => {
@@ -35,7 +36,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(false);
     setDropdown(null);
   }, [location]);
@@ -59,7 +59,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -70,7 +70,7 @@ const Navbar = () => {
               <Link
                 to={link.to}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-semibold transition-colors duration-200",
+                  "px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200",
                   location.pathname === link.to
                     ? "bg-primary/10 text-primary"
                     : "text-foreground/70 hover:text-foreground hover:bg-muted"
