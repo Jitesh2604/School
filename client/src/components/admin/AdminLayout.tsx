@@ -1,5 +1,5 @@
-import { ReactNode, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   MessageSquare,
@@ -9,7 +9,6 @@ import {
   X,
   ArrowLeft,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -19,7 +18,7 @@ const navItems = [
   { label: "Activities", icon: FileText, to: "/admin/activities" },
 ];
 
-const AdminLayout = ({ children }: { children: ReactNode }) => {
+const AdminLayout = () => {
   const { pathname } = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -101,7 +100,9 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
+          <Outlet />
+        </main>
       </div>
     </div>
   );

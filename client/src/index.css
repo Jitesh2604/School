@@ -1,74 +1,134 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ── Tailwind v4 theme — direct values, no var() wrappers ── */
+@theme {
+  /* Colors */
+  --color-background:                 hsl(40 50% 98%);
+  --color-foreground:                 hsl(220 30% 18%);
+  --color-card:                       hsl(0 0% 100%);
+  --color-card-foreground:            hsl(220 30% 18%);
+  --color-popover:                    hsl(0 0% 100%);
+  --color-popover-foreground:         hsl(220 30% 18%);
+  --color-primary:                    hsl(340 65% 58%);
+  --color-primary-foreground:         hsl(0 0% 100%);
+  --color-secondary:                  hsl(200 70% 65%);
+  --color-secondary-foreground:       hsl(0 0% 100%);
+  --color-muted:                      hsl(40 30% 94%);
+  --color-muted-foreground:           hsl(220 15% 50%);
+  --color-accent:                     hsl(45 90% 65%);
+  --color-accent-foreground:          hsl(30 50% 20%);
+  --color-destructive:                hsl(0 84.2% 60.2%);
+  --color-destructive-foreground:     hsl(210 40% 98%);
+  --color-border:                     hsl(30 20% 88%);
+  --color-input:                      hsl(30 20% 88%);
+  --color-ring:                       hsl(340 65% 58%);
 
-@layer base {
-  :root {
-    --background: 40 50% 98%;
-    --foreground: 220 30% 18%;
+  /* Pastel colors */
+  --color-pastel-pink:   hsl(340 70% 88%);
+  --color-pastel-blue:   hsl(200 70% 88%);
+  --color-pastel-yellow: hsl(45 90% 88%);
+  --color-pastel-green:  hsl(145 50% 85%);
+  --color-pastel-purple: hsl(270 50% 88%);
+  --color-pastel-orange: hsl(25 85% 85%);
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 18%;
+  /* Sidebar colors */
+  --color-sidebar:                    hsl(0 0% 98%);
+  --color-sidebar-foreground:         hsl(240 5.3% 26.1%);
+  --color-sidebar-primary:            hsl(240 5.9% 10%);
+  --color-sidebar-primary-foreground: hsl(0 0% 98%);
+  --color-sidebar-accent:             hsl(240 4.8% 95.9%);
+  --color-sidebar-accent-foreground:  hsl(240 5.9% 10%);
+  --color-sidebar-border:             hsl(220 13% 91%);
+  --color-sidebar-ring:               hsl(217.2 91.2% 59.8%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 18%;
+  /* Border radius */
+  --radius:    1rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
 
-    --primary: 340 65% 58%;
-    --primary-foreground: 0 0% 100%;
+  /* Fonts */
+  --font-body:    'Nunito', sans-serif;
+  --font-display: 'Fredoka', sans-serif;
 
-    --secondary: 200 70% 65%;
-    --secondary-foreground: 0 0% 100%;
+  /* Shadows */
+  --shadow-soft:    0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+  --shadow-medium:  0 4px 25px -5px rgba(0,0,0,0.10), 0 10px 30px -5px rgba(0,0,0,0.07);
+  --shadow-playful: 0 8px 30px -6px rgba(0,0,0,0.12), 0 20px 40px -8px rgba(0,0,0,0.08);
 
-    --muted: 40 30% 94%;
-    --muted-foreground: 220 15% 50%;
-
-    --accent: 45 90% 65%;
-    --accent-foreground: 30 50% 20%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 340 65% 58%;
-
-    --radius: 1rem;
-
-    /* Custom playschool colors */
-    --pastel-pink: 340 70% 88%;
-    --pastel-blue: 200 70% 88%;
-    --pastel-yellow: 45 90% 88%;
-    --pastel-green: 145 50% 85%;
-    --pastel-purple: 270 50% 88%;
-    --pastel-orange: 25 85% 85%;
-
-    --gradient-fun: linear-gradient(135deg, hsl(340 65% 58%), hsl(200 70% 65%));
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* Animations */
+  --animate-blob:  blob 8s infinite;
+  --animate-float: float 3s ease-in-out infinite;
 }
 
+/* ── Keep :root for any runtime CSS variable usage ── */
+:root {
+  --background: 40 50% 98%;
+  --foreground: 220 30% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 18%;
+  --primary: 340 65% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 200 70% 65%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 40 30% 94%;
+  --muted-foreground: 220 15% 50%;
+  --accent: 45 90% 65%;
+  --accent-foreground: 30 50% 20%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 30 20% 88%;
+  --input: 30 20% 88%;
+  --ring: 340 65% 58%;
+  --radius: 1rem;
+  --pastel-pink: 340 70% 88%;
+  --pastel-blue: 200 70% 88%;
+  --pastel-yellow: 45 90% 88%;
+  --pastel-green: 145 50% 85%;
+  --pastel-purple: 270 50% 88%;
+  --pastel-orange: 25 85% 85%;
+  --gradient-fun: linear-gradient(135deg, hsl(340 65% 58%), hsl(200 70% 65%));
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* ── Keyframes ── */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -30px) scale(1.05); }
+  66%       { transform: translate(-15px, 15px) scale(0.97); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── Base styles ── */
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    font-family: var(--font-display);
   }
 }
 
+/* ── Component classes ── */
 @layer components {
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
@@ -83,7 +143,11 @@
     @apply max-w-7xl mx-auto;
   }
   .pastel-card {
-    @apply bg-card rounded-2xl shadow-soft p-6 sm:p-8 transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+    @apply bg-card rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1;
+    box-shadow: var(--shadow-soft);
+  }
+  .pastel-card:hover {
+    box-shadow: var(--shadow-medium);
   }
   .pastel-badge {
     @apply inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase;
@@ -94,11 +158,49 @@
   }
 }
 
+/* ── Utilities ── */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
   .text-pretty {
     text-wrap: pretty;
+  }
+}
+
+/* ── Add these keyframes + utilities to your index.css ── */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
   }
 }

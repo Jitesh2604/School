@@ -16,8 +16,13 @@ const ScrollReveal = ({ children, className, delay = 0, direction = "up" }: Scro
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(el); } },
-      { threshold: 0.15 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }  // lowered from 0.15 so elements near viewport edge still trigger
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -33,8 +38,12 @@ const ScrollReveal = ({ children, className, delay = 0, direction = "up" }: Scro
   return (
     <div
       ref={ref}
-      className={cn("opacity-0", visible && animClass, className)}
-      style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
+      className={cn(
+        !visible && "opacity-0",   // only apply opacity-0 when NOT yet visible
+        visible && animClass,       // apply animation class when visible (animation sets opacity to 1)
+        className
+      )}
+      style={visible ? { animationDelay: `${delay}ms`, animationFillMode: "forwards" } : undefined}
     >
       {children}
     </div>

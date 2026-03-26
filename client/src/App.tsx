@@ -27,22 +27,25 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Public routes */}
-          <Route element={<Layout><Index /></Layout>} path="/" />
-          <Route element={<Layout><About /></Layout>} path="/about" />
-          <Route element={<Layout><Programs /></Layout>} path="/programs" />
-          <Route element={<Layout><Admissions /></Layout>} path="/admissions" />
-          <Route element={<Layout><Gallery /></Layout>} path="/gallery" />
-          <Route element={<Layout><Activities /></Layout>} path="/activities" />
-          <Route element={<Layout><Contact /></Layout>} path="/contact" />
+          {/* Public routes — Layout wraps all children via Outlet */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/admissions" element={<Admissions />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
 
-          {/* Admin routes */}
-          <Route path="/admin" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
-          <Route path="/admin/enquiries" element={<AdminLayout><AdminEnquiries /></AdminLayout>} />
-          <Route path="/admin/gallery" element={<AdminLayout><AdminGallery /></AdminLayout>} />
-          <Route path="/admin/activities" element={<AdminLayout><AdminActivities /></AdminLayout>} />
-
-          <Route path="*" element={<Layout><NotFound /></Layout>} />
+          {/* Admin routes — AdminLayout wraps all children via Outlet */}
+          <Route element={<AdminLayout />}>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/enquiries" element={<AdminEnquiries />} />
+            <Route path="/admin/gallery" element={<AdminGallery />} />
+            <Route path="/admin/activities" element={<AdminActivities />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
