@@ -17,6 +17,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminEnquiries from "./pages/admin/AdminEnquiries";
 import AdminGallery from "./pages/admin/AdminGallery";
 import AdminActivities from "./pages/admin/AdminActivities";
+import AdminLogin from "./pages/admin/AdminLogin";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/admin/enquiries" element={<AdminEnquiries />} />
             <Route path="/admin/gallery" element={<AdminGallery />} />
             <Route path="/admin/activities" element={<AdminActivities />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
           </Route>
         </Routes>
       </BrowserRouter>
