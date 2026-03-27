@@ -73,15 +73,15 @@ const Footer = () => (
           <ul className="space-y-3">
             <li className="flex items-start gap-3 text-sm text-background/60">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-              123 Sunshine Lane, Green Park, New Delhi 110016
+              B-63, Lic Colony, Near St. Marks Public School, Paschim Vihar
             </li>
             <li className="flex items-center gap-3 text-sm text-background/60">
               <Phone className="w-4 h-4 shrink-0 text-primary" />
-              +91 98765 43210
+              +91 9953187649, +91 09711786460
             </li>
             <li className="flex items-center gap-3 text-sm text-background/60">
               <Mail className="w-4 h-4 shrink-0 text-primary" />
-              hello@littlestars.edu
+              ruchika101@gmail.com
             </li>
           </ul>
         </div>
