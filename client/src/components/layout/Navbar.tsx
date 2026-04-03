@@ -21,6 +21,7 @@ const navLinks = [
   { label: "Activities", to: "/activities" },
   { label: "Contact", to: "/contact" },
   { label: "Admin", to: "/admin" },
+  { label: "Franchise", to: "/franchise" },
 ];
 
 const Navbar = () => {

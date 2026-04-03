@@ -18,6 +18,7 @@ import AdminEnquiries from "./pages/admin/AdminEnquiries";
 import AdminGallery from "./pages/admin/AdminGallery";
 import AdminActivities from "./pages/admin/AdminActivities";
 import AdminLogin from "./pages/admin/AdminLogin";
+import Franchise from "./pages/Franchise.tsx";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/activities" element={<Activities />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/franchise" element={<Franchise />} />
             <Route path="*" element={<NotFound />} />
           </Route>
 
