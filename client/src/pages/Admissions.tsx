@@ -1,4 +1,21 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
+
+interface FormData {
+  childName: string;
+  parentName: string;
+  phone: string;
+  email: string;
+  age: string;
+  message: string;
+}
+
+interface FormErrors {
+  childName?: string;
+  parentName?: string;
+  phone?: string;
+  email?: string;
+  age?: string;
+}
 
 const steps = [
   { step: "01", icon: "📋", title: "Fill Enquiry Form", desc: "Complete our simple online form with your child's basic details and preferred batch." },
@@ -32,12 +49,12 @@ const initialForm = {
 };
 
 export default function Admission() {
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const validate = () => {
-    const e = {};
+  const validate = (): FormErrors => {
+    const e: FormErrors = {};
     if (!form.childName.trim()) e.childName = "Child's name is required";
     if (!form.parentName.trim()) e.parentName = "Parent's name is required";
     if (!/^\d{10}$/.test(form.phone.trim())) e.phone = "Enter a valid 10-digit phone number";
@@ -46,7 +63,7 @@ export default function Admission() {
     return e;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: undefined });
   };
@@ -60,7 +77,7 @@ export default function Admission() {
   return (
     <div className="min-h-screen bg-[#FFFBF5] font-sans">
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#E8F5E9] via-[#F9FBE7] to-[#E0F2F1] py-20 px-4 text-center">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#E8F5E9] via-[#F9FBE7] to-[#E0F2F1] py-20 px-4 text-center">
         <div className="pointer-events-none absolute -top-10 -right-10 h-52 w-52 rounded-full bg-green-200 opacity-40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-10 -left-10 h-56 w-56 rounded-full bg-teal-200 opacity-40 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-2xl">
@@ -102,7 +119,7 @@ export default function Admission() {
       </section>
 
       {/* ── Eligibility ── */}
-      <section className="bg-gradient-to-br from-[#FFF3E0] to-[#FFF8F0] py-16 px-4">
+      <section className="bg-linear-to-br from-[#FFF3E0] to-[#FFF8F0] py-16 px-4">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-[#2D2D2D]" style={{ fontFamily: "'Nunito', sans-serif" }}>
@@ -166,7 +183,7 @@ export default function Admission() {
       </section>
 
       {/* ── Admission Form ── */}
-      <section className="bg-gradient-to-br from-[#E8F5E9] to-[#F1F8E9] py-16 px-4">
+      <section className="bg-linear-to-br from-[#E8F5E9] to-[#F1F8E9] py-16 px-4">
         <div className="mx-auto max-w-2xl">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-[#2D2D2D]" style={{ fontFamily: "'Nunito', sans-serif" }}>
@@ -292,7 +309,7 @@ export default function Admission() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-gradient-to-r from-[#43A047] to-[#66BB6A] py-16 px-4 text-center text-white">
+      <section className="bg-linear-to-r from-[#43A047] to-[#66BB6A] py-16 px-4 text-center text-white">
         <div className="mx-auto max-w-xl">
           <div className="mb-3 text-4xl">🎒</div>
           <h2 className="text-3xl font-extrabold" style={{ fontFamily: "'Nunito', sans-serif" }}>

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const activities = [
   {
     icon: "🎨",
@@ -96,7 +94,7 @@ export default function Activities() {
   return (
     <div className="min-h-screen bg-[#FFFBF5] font-sans">
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#FFF3E0] via-[#FFF8F0] to-[#FCE4EC] py-20 px-4 text-center">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#FFF3E0] via-[#FFF8F0] to-[#FCE4EC] py-20 px-4 text-center">
         {/* decorative blobs */}
         <div className="pointer-events-none absolute -top-10 -left-10 h-48 w-48 rounded-full bg-yellow-200 opacity-40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-pink-200 opacity-40 blur-3xl" />
@@ -142,7 +140,7 @@ export default function Activities() {
       </section>
 
       {/* ── Daily Routine ── */}
-      <section className="bg-gradient-to-br from-[#E8F5E9] to-[#F1F8E9] py-16 px-4">
+      <section className="bg-linear-to-br from-[#E8F5E9] to-[#F1F8E9] py-16 px-4">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-[#2D2D2D]" style={{ fontFamily: "'Nunito', sans-serif" }}>
@@ -225,7 +223,7 @@ export default function Activities() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-gradient-to-r from-[#FF7043] to-[#FF8A65] py-16 px-4 text-center text-white">
+      <section className="bg-linear-to-r from-[#FF7043] to-[#FF8A65] py-16 px-4 text-center text-white">
         <h2 className="text-3xl font-extrabold" style={{ fontFamily: "'Nunito', sans-serif" }}>
           Give your child a joyful learning experience 🌈
         </h2>
