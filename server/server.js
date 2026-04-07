@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
+import authRoutes from './routes/authRoutes.js';
+import { authMiddleware } from './middlewares/authMiddleware';
 
 dotenv.config();
 
@@ -13,6 +15,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
+
+app.use('/api/auth', authMiddleware,  authRoutes);
 
 app.listen(PORT, async () => {
     try {
