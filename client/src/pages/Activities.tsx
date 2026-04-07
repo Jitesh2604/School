@@ -231,7 +231,7 @@ export default function Activities() {
           Join our happy family of curious, creative, and confident little learners.
         </p>
         <a
-          href="/admission"
+          href="/admissions"
           className="mt-8 inline-block rounded-full bg-white px-10 py-3.5 font-bold text-[#FF7043] shadow-lg transition hover:scale-105 hover:shadow-xl"
         >
           Enroll Now →
