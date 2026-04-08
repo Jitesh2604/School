@@ -1,9 +1,21 @@
+import Enquiry from "../models/Enquiry.js";
+
 export const createEnquiry = async (req, res) => {
   try {
-    const { name, email, message } = req.body;
-    const enquiry = new Enquiry({ name, email, message });
-    await enquiry.save();
-    res.status(201).json({ message: "Enquiry created successfully" });
+    const { name, phone, city, email, message } = req.body;
+
+    const enquiry = await Enquiry.create({
+      name,
+      phone,
+      city,
+      email,
+      message,
+    });
+
+    res.status(201).json({
+      message: "Enquiry created successfully",
+      enquiry,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -23,10 +35,16 @@ export const getEnquiries = async (req, res) => {
 export const deleteEnquiry = async (req, res) => {
   try {
     const { id } = req.params;
-    await Enquiry.findByIdAndDelete(id);
+
+    const enquiry = await Enquiry.findByIdAndDelete(id);
+
+    if (!enquiry) {
+      return res.status(404).json({ message: "Enquiry not found" });
+    }
+
     res.json({ message: "Enquiry deleted successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
-};  
+};

@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './config/db';
+import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
-import { authMiddleware } from './middlewares/authMiddleware';
+import enquiryRoutes from './routes/enquiryRoutes.js';
 
 dotenv.config();
 
@@ -16,8 +16,10 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.use('/api/auth', authMiddleware,  authRoutes);
+app.use('/api/auth',  authRoutes);
+app.use('/api/enquiry', enquiryRoutes);
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
     try {
         await connectDB();            
