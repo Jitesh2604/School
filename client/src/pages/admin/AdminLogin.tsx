@@ -11,21 +11,42 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setError("");
+  setLoading(true);
 
-    // Replace this with your real auth logic
-    await new Promise((r) => setTimeout(r, 1000));
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-    if (email === "admin@littlestars.com" && password === "admin123") {
-      navigate("/admin");
-    } else {
-      setError("Invalid email or password. Please try again.");
+    const data: { token?: string; message?: string } = await res.json();
+
+    if (!res.ok || !data.token) {
+      throw new Error(data.message || "Login failed");
     }
+
+    // ✅ Store token
+    localStorage.setItem("adminToken", data.token);
+
+    // ✅ Redirect
+    navigate("/admin");
+
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      setError(err.message);
+    } else {
+      setError("Something went wrong");
+    }
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background px-4">

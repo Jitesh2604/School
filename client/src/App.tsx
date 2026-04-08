@@ -19,6 +19,7 @@ import AdminGallery from "./pages/admin/AdminGallery";
 import AdminActivities from "./pages/admin/AdminActivities";
 import AdminLogin from "./pages/admin/AdminLogin";
 import Franchise from "./pages/Franchise.tsx";
+import ProtectedRoute from "./components/admin/ProtectedRoute.tsx";
 
 const queryClient = new QueryClient();
 
@@ -43,12 +44,14 @@ const App = () => (
           </Route>
 
           {/* Admin routes — AdminLayout wraps all children via Outlet */}
-          <Route element={<AdminLayout />}>
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/enquiries" element={<AdminEnquiries />} />
-            <Route path="/admin/gallery" element={<AdminGallery />} />
-            <Route path="/admin/activities" element={<AdminActivities />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route element={<ProtectedRoute />}>
+            <Route element={<AdminLayout />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/enquiries" element={<AdminEnquiries />} />
+              <Route path="/admin/gallery" element={<AdminGallery />} />
+              <Route path="/admin/activities" element={<AdminActivities />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
