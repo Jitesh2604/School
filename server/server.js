@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import enquiryRoutes from './routes/enquiryRoutes.js';
+import admissionRoutes from './routes/admissionRoutes.js';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth',  authRoutes);
 app.use('/api/enquiry', enquiryRoutes);
+app.use('/api/admission', admissionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
