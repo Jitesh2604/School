@@ -27,8 +27,14 @@ const HeroSection = () => (
   <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-background">
     {/* blobs */}
     <div className="absolute -top-24 -left-24 w-80 h-80 bg-pastel-yellow rounded-full opacity-50 blur-3xl animate-blob" />
-    <div className="absolute top-10 right-0 w-96 h-96 bg-pastel-pink rounded-full opacity-40 blur-3xl animate-blob" style={{ animationDelay: "2s" }} />
-    <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-pastel-blue rounded-full opacity-35 blur-3xl animate-blob" style={{ animationDelay: "4s" }} />
+    <div
+      className="absolute top-10 right-0 w-96 h-96 bg-pastel-pink rounded-full opacity-40 blur-3xl animate-blob"
+      style={{ animationDelay: "2s" }}
+    />
+    <div
+      className="absolute bottom-0 left-1/3 w-72 h-72 bg-pastel-blue rounded-full opacity-35 blur-3xl animate-blob"
+      style={{ animationDelay: "4s" }}
+    />
 
     {/* decorative shapes */}
     <div className="absolute top-20 right-24 w-16 h-16 rounded-2xl bg-pastel-yellow opacity-60 rotate-12 hidden lg:block" />
@@ -44,13 +50,14 @@ const HeroSection = () => (
         </ScrollReveal>
         <ScrollReveal delay={100}>
           <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance">
-            Start Your Own{" "}
-            <span className="gradient-text">Play School</span>
+            Start Your Own <span className="gradient-text">Play School</span>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={200}>
           <p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-xl text-pretty">
-            Build a meaningful education business in your neighbourhood. We'll guide you every step of the way — from setup to your very first student.
+            Build a meaningful education business in your neighbourhood. We'll
+            guide you every step of the way — from setup to your very first
+            student.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={300}>
@@ -65,9 +72,17 @@ const HeroSection = () => (
         </ScrollReveal>
         <ScrollReveal delay={400}>
           <div className="flex flex-wrap items-center gap-6 mt-10 text-sm text-muted-foreground">
-            <span className="flex items-center gap-2"><Star className="w-4 h-4 text-accent fill-accent" /> Trusted local brand</span>
-            <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" /> Child-first approach</span>
-            <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary" /> End-to-end support</span>
+            <span className="flex items-center gap-2">
+              <Star className="w-4 h-4 text-accent fill-accent" /> Trusted local
+              brand
+            </span>
+            <span className="flex items-center gap-2">
+              <Heart className="w-4 h-4 text-primary" /> Child-first approach
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-secondary" /> End-to-end
+              support
+            </span>
           </div>
         </ScrollReveal>
       </div>
@@ -127,11 +142,17 @@ const WhyPartnerSection = () => (
         {benefits.map((b, i) => (
           <ScrollReveal key={b.title} delay={i * 70}>
             <div className="pastel-card group h-full">
-              <div className={`w-12 h-12 ${b.color} rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+              <div
+                className={`w-12 h-12 ${b.color} rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+              >
                 <b.icon className="w-6 h-6 text-foreground/70" />
               </div>
-              <h3 className="font-display font-bold text-lg text-foreground mb-2">{b.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">
+                {b.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {b.desc}
+              </p>
             </div>
           </ScrollReveal>
         ))}
@@ -142,12 +163,36 @@ const WhyPartnerSection = () => (
 
 /* ── What We Provide ── */
 const provisions = [
-  { icon: BookOpen, title: "Curriculum & Materials", desc: "Age-appropriate lesson plans, activity sheets, and learning resources ready to use." },
-  { icon: GraduationCap, title: "Teacher Training", desc: "Hands-on training for staff on classroom management and child development." },
-  { icon: Building2, title: "Setup & Classroom Guidance", desc: "Advice on furniture, décor, safety, and creating a welcoming learning space." },
-  { icon: Megaphone, title: "Basic Marketing Support", desc: "Templates for local flyers, social media posts, and admission banners." },
-  { icon: ClipboardList, title: "Admission Guidance", desc: "Step-by-step process for enrolling students and managing admission paperwork." },
-  { icon: Users, title: "Ongoing Support", desc: "Regular check-ins and a direct line to our team whenever you need help." },
+  {
+    icon: BookOpen,
+    title: "Curriculum & Materials",
+    desc: "Age-appropriate lesson plans, activity sheets, and learning resources ready to use.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Teacher Training",
+    desc: "Hands-on training for staff on classroom management and child development.",
+  },
+  {
+    icon: Building2,
+    title: "Setup & Classroom Guidance",
+    desc: "Advice on furniture, décor, safety, and creating a welcoming learning space.",
+  },
+  {
+    icon: Megaphone,
+    title: "Basic Marketing Support",
+    desc: "Templates for local flyers, social media posts, and admission banners.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Admission Guidance",
+    desc: "Step-by-step process for enrolling students and managing admission paperwork.",
+  },
+  {
+    icon: Users,
+    title: "Ongoing Support",
+    desc: "Regular check-ins and a direct line to our team whenever you need help.",
+  },
 ];
 
 const WhatWeProvideSection = () => (
@@ -166,8 +211,12 @@ const WhatWeProvideSection = () => (
                 <p.icon className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-bold text-base text-foreground mb-1">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <h3 className="font-display font-bold text-base text-foreground mb-1">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {p.desc}
+                </p>
               </div>
             </div>
           </ScrollReveal>
@@ -212,11 +261,17 @@ const InvestmentSection = () => (
         ].map((item, i) => (
           <ScrollReveal key={item.label} delay={i * 100}>
             <div className="pastel-card text-center group">
-              <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110`}>
+              <div
+                className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110`}
+              >
                 <item.icon className="w-7 h-7 text-foreground/70" />
               </div>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-2">{item.label}</p>
-              <p className="font-display font-bold text-2xl text-foreground mb-1">{item.value}</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-2">
+                {item.label}
+              </p>
+              <p className="font-display font-bold text-2xl text-foreground mb-1">
+                {item.value}
+              </p>
               <p className="text-xs text-muted-foreground">{item.note}</p>
             </div>
           </ScrollReveal>
@@ -228,10 +283,30 @@ const InvestmentSection = () => (
 
 /* ── How It Works ── */
 const steps = [
-  { number: "01", title: "Submit Enquiry", desc: "Fill in the form below and tell us a bit about yourself and your city.", color: "bg-pastel-yellow" },
-  { number: "02", title: "Discussion & Planning", desc: "We'll schedule a call to understand your goals and share the full details.", color: "bg-pastel-blue" },
-  { number: "03", title: "Setup Support", desc: "Our team helps you with classroom setup, staff hiring, and material sourcing.", color: "bg-pastel-pink" },
-  { number: "04", title: "Launch Your School", desc: "Open your doors with our support on day one — and beyond.", color: "bg-pastel-green" },
+  {
+    number: "01",
+    title: "Submit Enquiry",
+    desc: "Fill in the form below and tell us a bit about yourself and your city.",
+    color: "bg-pastel-yellow",
+  },
+  {
+    number: "02",
+    title: "Discussion & Planning",
+    desc: "We'll schedule a call to understand your goals and share the full details.",
+    color: "bg-pastel-blue",
+  },
+  {
+    number: "03",
+    title: "Setup Support",
+    desc: "Our team helps you with classroom setup, staff hiring, and material sourcing.",
+    color: "bg-pastel-pink",
+  },
+  {
+    number: "04",
+    title: "Launch Your School",
+    desc: "Open your doors with our support on day one — and beyond.",
+    color: "bg-pastel-green",
+  },
 ];
 
 const HowItWorksSection = () => (
@@ -249,11 +324,19 @@ const HowItWorksSection = () => (
           {steps.map((s, i) => (
             <ScrollReveal key={s.number} delay={i * 100}>
               <div className="flex flex-col items-center text-center group">
-                <div className={`w-24 h-24 ${s.color} rounded-3xl flex flex-col items-center justify-center mb-5 shadow-soft transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1 group-hover:shadow-medium`}>
-                  <span className="font-display font-bold text-2xl text-foreground/60">{s.number}</span>
+                <div
+                  className={`w-24 h-24 ${s.color} rounded-3xl flex flex-col items-center justify-center mb-5 shadow-soft transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1 group-hover:shadow-medium`}
+                >
+                  <span className="font-display font-bold text-2xl text-foreground/60">
+                    {s.number}
+                  </span>
                 </div>
-                <h3 className="font-display font-bold text-lg text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h3 className="font-display font-bold text-lg text-foreground mb-2">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {s.desc}
+                </p>
                 {i < steps.length - 1 && (
                   <ArrowRight className="w-5 h-5 text-muted-foreground/40 mt-4 lg:hidden" />
                 )}
@@ -277,7 +360,13 @@ type FormData = {
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
 const EnquiryFormSection = () => {
-  const [form, setForm] = useState<FormData>({ name: "", phone: "", city: "", email: "", message: "" });
+  const [form, setForm] = useState<FormData>({
+    name: "",
+    phone: "",
+    city: "",
+    email: "",
+    message: "",
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -285,25 +374,62 @@ const EnquiryFormSection = () => {
   const validate = (): boolean => {
     const e: FormErrors = {};
     if (!form.name.trim()) e.name = "Full name is required.";
-    if (!/^\d{10}$/.test(form.phone.trim())) e.phone = "Enter a valid 10-digit phone number.";
+    if (!/^\d{10}$/.test(form.phone.trim()))
+      e.phone = "Enter a valid 10-digit phone number.";
     if (!form.city.trim()) e.city = "City is required.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "Enter a valid email address.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
+      e.email = "Enter a valid email address.";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!validate()) return;
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data: { message?: string } = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to submit enquiry");
+      }
+
+      // ✅ Success
+      setSubmitted(true);
+      setForm({
+        name: "",
+        phone: "",
+        city: "",
+        email: "",
+        message: "",
+      });
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message); // you can replace with toast later
+      } else {
+        alert("Something went wrong");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = (field: keyof FormData) =>
@@ -324,11 +450,26 @@ const EnquiryFormSection = () => {
                 <div className="w-20 h-20 bg-pastel-green rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10 text-foreground/60" />
                 </div>
-                <h3 className="font-display font-bold text-2xl text-foreground mb-3">Thank You!</h3>
+                <h3 className="font-display font-bold text-2xl text-foreground mb-3">
+                  Thank You!
+                </h3>
                 <p className="text-muted-foreground text-base leading-relaxed max-w-sm mx-auto">
-                  We've received your enquiry. Our team will call you within 1–2 business days to discuss the next steps.
+                  We've received your enquiry. Our team will call you within 1–2
+                  business days to discuss the next steps.
                 </p>
-                <Button className="mt-8" onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", city: "", email: "", message: "" }); }}>
+                <Button
+                  className="mt-8"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setForm({
+                      name: "",
+                      phone: "",
+                      city: "",
+                      email: "",
+                      message: "",
+                    });
+                  }}
+                >
                   Submit Another Enquiry
                 </Button>
               </div>
@@ -339,30 +480,85 @@ const EnquiryFormSection = () => {
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-foreground mb-2">Full Name *</label>
-                      <input name="name" value={form.name} onChange={handleChange} placeholder="Your full name" className={inputClass("name")} />
-                      {errors.name && <p className="text-xs text-destructive mt-1.5 ml-1">{errors.name}</p>}
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Full Name *
+                      </label>
+                      <input
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your full name"
+                        className={inputClass("name")}
+                      />
+                      {errors.name && (
+                        <p className="text-xs text-destructive mt-1.5 ml-1">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-foreground mb-2">Phone Number *</label>
-                      <input name="phone" value={form.phone} onChange={handleChange} placeholder="10-digit mobile number" maxLength={10} className={inputClass("phone")} />
-                      {errors.phone && <p className="text-xs text-destructive mt-1.5 ml-1">{errors.phone}</p>}
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Phone Number *
+                      </label>
+                      <input
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleChange}
+                        placeholder="10-digit mobile number"
+                        maxLength={10}
+                        className={inputClass("phone")}
+                      />
+                      {errors.phone && (
+                        <p className="text-xs text-destructive mt-1.5 ml-1">
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-foreground mb-2">City *</label>
-                      <input name="city" value={form.city} onChange={handleChange} placeholder="Your city" className={inputClass("city")} />
-                      {errors.city && <p className="text-xs text-destructive mt-1.5 ml-1">{errors.city}</p>}
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        City *
+                      </label>
+                      <input
+                        name="city"
+                        value={form.city}
+                        onChange={handleChange}
+                        placeholder="Your city"
+                        className={inputClass("city")}
+                      />
+                      {errors.city && (
+                        <p className="text-xs text-destructive mt-1.5 ml-1">
+                          {errors.city}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-foreground mb-2">Email Address *</label>
-                      <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" className={inputClass("email")} />
-                      {errors.email && <p className="text-xs text-destructive mt-1.5 ml-1">{errors.email}</p>}
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder="you@example.com"
+                        className={inputClass("email")}
+                      />
+                      {errors.email && (
+                        <p className="text-xs text-destructive mt-1.5 ml-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-foreground mb-2">Message <span className="text-muted-foreground font-normal">(optional)</span></label>
+                    <label className="block text-sm font-bold text-foreground mb-2">
+                      Message{" "}
+                      <span className="text-muted-foreground font-normal">
+                        (optional)
+                      </span>
+                    </label>
                     <textarea
                       name="message"
                       value={form.message}
@@ -372,7 +568,12 @@ const EnquiryFormSection = () => {
                       className={`${inputClass("message")} resize-none`}
                     />
                   </div>
-                  <Button type="submit" size="xl" className="w-full" disabled={loading}>
+                  <Button
+                    type="submit"
+                    size="xl"
+                    className="w-full"
+                    disabled={loading}
+                  >
                     {loading ? (
                       <span className="flex items-center gap-2">
                         <span className="w-4 h-4 border-2 border-primary-foreground/40 border-t-primary-foreground rounded-full animate-spin" />
@@ -384,7 +585,10 @@ const EnquiryFormSection = () => {
                       </span>
                     )}
                   </Button>
-                  <p className="text-xs text-muted-foreground text-center">We respect your privacy. Your information will never be shared.</p>
+                  <p className="text-xs text-muted-foreground text-center">
+                    We respect your privacy. Your information will never be
+                    shared.
+                  </p>
                 </form>
               </div>
             </ScrollReveal>
@@ -414,15 +618,22 @@ const CTASection = () => (
             Start Your Journey in Early Childhood Education
           </h2>
           <p className="relative text-primary-foreground/80 text-lg mb-10 max-w-lg mx-auto">
-            Join us in shaping the futures of young children — one classroom at a time.
+            Join us in shaping the futures of young children — one classroom at
+            a time.
           </p>
           <div className="relative flex flex-wrap justify-center gap-4">
             <Button asChild size="xl" variant="secondary">
               <a href="#enquiry-form">Apply Now</a>
             </Button>
-            <Button asChild size="xl" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            >
               <Link to="/contact">
-                <Mail className="w-4 h-4 mr-2" />Contact Us
+                <Mail className="w-4 h-4 mr-2" />
+                Contact Us
               </Link>
             </Button>
           </div>
