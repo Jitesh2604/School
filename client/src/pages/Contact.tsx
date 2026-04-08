@@ -25,9 +25,44 @@ const Contact = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    if (validate()) setSubmitted(true);
+
+    if (!validate()) return;
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data: { message?: string } = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to send message");
+      }
+
+      // ✅ Success
+      setSubmitted(true);
+
+      // reset form
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("Something went wrong");
+      }
+    }
   };
 
   const inputClass = (field: string) =>
