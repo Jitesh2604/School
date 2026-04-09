@@ -6,6 +6,7 @@ import authRoutes from './routes/authRoutes.js';
 import enquiryRoutes from './routes/enquiryRoutes.js';
 import admissionRoutes from './routes/admissionRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
+import activityRoutes from "./routes/activityRoutes.js";
 
 dotenv.config();
 
