@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Trash2, Eye, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -36,48 +36,87 @@ const AdminEnquiries = () => {
   const { toast } = useToast();
 
   // ✅ NORMALIZE DATA
-  const formatData = (items: any[], type: EnquiryType): Enquiry[] => {
-    return items.map((item) => ({
-      id: item._id,
-      type,
-      name: item.name || item.parentName || item.childName,
-      email: item.email,
-      phone: item.phone,
-      subject: item.subject || "Admission Enquiry",
-      message: item.message,
-      status: item.status || "new",
-      createdAt: item.createdAt,
-    }));
+  const formatData = (items: unknown, type: EnquiryType): Enquiry[] => {
+    const array = Array.isArray(items) ? items : [];
+    return array.map((item) => {
+      const obj = item as Record<string, unknown>;
+      return {
+        id: String(obj._id || ''),
+        type,
+        name: String(obj.name || obj.parentName || obj.childName || ''),
+        email: String(obj.email || ''),
+        phone: String(obj.phone || ''),
+        subject: String(obj.subject || "Enquiry"),
+        message: String(obj.message || ''),
+        status: (obj.status as "new" | "read" | "replied") || "new",
+        createdAt: String(obj.createdAt || ''),
+      };
+    });
   };
 
   // ✅ FETCH ALL APIs
-  const fetchAllData = async () => {
+  const fetchAllData = useCallback(async () => {
     try {
       setLoading(true);
 
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
 
-      const [contactRes, admissionRes, franchiseRes] = await Promise.all([
+      if (!token) {
+        toast({ title: "Authentication failed. Please login again.", variant: "destructive" });
+        return;
+      }
+
+      const results = await Promise.allSettled([
         fetch(API.contact, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         }),
         fetch(API.admission, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         }),
         fetch(API.franchise, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         }),
       ]);
 
-      const contacts = await contactRes.json();
-      const admissions = await admissionRes.json();
-      const franchises = await franchiseRes.json();
+      let contacts: unknown = [];
+      let admissions: unknown = [];
+      let franchises: unknown = [];
+
+      if (results[0].status === 'fulfilled') {
+        const response = results[0].value;
+        if (response.ok) {
+          contacts = await response.json();
+        } else {
+          console.error(`Contact API error: ${response.status}`);
+        }
+      }
+
+      if (results[1].status === 'fulfilled') {
+        const response = results[1].value;
+        if (response.ok) {
+          admissions = await response.json();
+        } else {
+          console.error(`Admission API error: ${response.status}`);
+        }
+      }
+
+      if (results[2].status === 'fulfilled') {
+        const response = results[2].value;
+        if (response.ok) {
+          franchises = await response.json();
+        } else {
+          console.error(`Franchise API error: ${response.status}`);
+        }
+      }
 
       const merged = [
         ...formatData(contacts, "contact"),
@@ -92,29 +131,40 @@ const AdminEnquiries = () => {
       );
 
       setData(merged);
-    } catch {
+    } catch (err) {
+      console.error('Error fetching data:', err);
       toast({ title: "Failed to load data", variant: "destructive" });
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchAllData();
-  }, []);
+  }, [fetchAllData]);
 
   // ✅ DELETE (dynamic API)
   const handleDelete = async (e: Enquiry) => {
     try {
-      await fetch(`${API[e.type]}/${e.id}`, {
+      const token = localStorage.getItem("adminToken");
+      const response = await fetch(`${API[e.type]}/${e.id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       });
+
+      if (!response.ok) {
+        throw new Error(`Delete failed: ${response.status}`);
+      }
 
       setSelected(null);
       fetchAllData();
 
       toast({ title: "Deleted successfully", variant: "destructive" });
-    } catch {
+    } catch (err) {
+      console.error('Delete error:', err);
       toast({ title: "Delete failed", variant: "destructive" });
     }
   };
@@ -122,15 +172,36 @@ const AdminEnquiries = () => {
   // ✅ UPDATE STATUS
   const handleStatus = async (e: Enquiry, status: Enquiry["status"]) => {
     try {
-      await fetch(`${API[e.type]}/${e.id}`, {
+      const token = localStorage.getItem("adminToken");
+      const response = await fetch(`${API[e.type]}/${e.id}`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ status }),
       });
 
-      fetchAllData();
+      if (!response.ok) {
+        throw new Error(`Update failed: ${response.status}`);
+      }
+
+      // Update local state immediately
+      setData(data.map(item => 
+        item.id === e.id ? { ...item, status } : item
+      ));
+      
+      // Update selected item
+      if (selected?.id === e.id) {
+        setSelected({ ...selected, status });
+      }
+
+      // Trigger dashboard refresh via localStorage
+      localStorage.setItem('enquiry-updated', JSON.stringify({ id: e.id, status, timestamp: Date.now() }));
+
       toast({ title: "Status updated" });
-    } catch {
+    } catch (err) {
+      console.error('Status update error:', err);
       toast({ title: "Update failed", variant: "destructive" });
     }
   };
