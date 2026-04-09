@@ -22,6 +22,7 @@ app.use('/api/auth',  authRoutes);
 app.use('/api/enquiry', enquiryRoutes);
 app.use('/api/admission', admissionRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/activity", activityRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
