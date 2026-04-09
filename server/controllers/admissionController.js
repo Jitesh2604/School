@@ -40,3 +40,24 @@ export const deleteAdmission = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+export const updateAdmissionStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const updated = await Admission.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ message: "Admission not found" });
+    }
+
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
