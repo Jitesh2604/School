@@ -3,6 +3,8 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import PageHero from "@/components/shared/PageHero.tsx";
+import ProgramsBanner from "@/assets/play_school/img4.jpg";
 
 const programs = [
   {
@@ -45,6 +47,11 @@ const programs = [
 
 const Programs = () => (
   <>
+    <PageHero
+      title="Our Programs"
+      backgroundImage={ProgramsBanner}
+      breadcrumb="Home"
+    />
     <section className="section-padding pt-28 sm:pt-32">
       <div className="container-wide mx-auto">
         <SectionHeading
