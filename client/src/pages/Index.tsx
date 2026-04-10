@@ -5,74 +5,92 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeading from "@/components/shared/SectionHeading";
 import heroImg from "@/assets/hero-children.jpg";
 import { useState, useEffect } from "react";
+import image1 from '../assets/play_school/img1.jpg';
+import image2 from '../assets/play_school/img2.jpg';
+import image3 from '../assets/play_school/img3.jpg';
+import image4 from '../assets/play_school/img4.jpg';
 
-const HeroSection = () => (
-  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-    {/* Background blobs */}
-    <div className="absolute -top-32 -right-32 w-96 h-96 bg-pastel-pink rounded-full opacity-40 animate-blob blur-3xl" />
-    <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-pastel-blue rounded-full opacity-40 animate-blob blur-3xl" style={{ animationDelay: "2s" }} />
-    <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pastel-yellow rounded-full opacity-30 animate-blob blur-3xl" style={{ animationDelay: "4s" }} />
+const HeroSection = () => {
+  const images = [heroImg, image1, image2, image3, image4];
+  const [currentImg, setCurrentImg] = useState(0);
 
-    <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <ScrollReveal>
-            <span className="pastel-badge bg-pastel-yellow text-accent-foreground mb-4 inline-block">
-              ✨ Admissions Open 2026-27
-            </span>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-[1.05] tracking-tight text-balance">
-              Where Little Minds Grow Into{" "}
-              <span className="gradient-text">Big Dreams</span>
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-lg text-pretty">
-              A warm, nurturing space where your child discovers the joy of learning through play, creativity, and caring guidance.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={300}>
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Button asChild size="xl">
-                <Link to="/admissions">Enroll Now</Link>
-              </Button>
-              <Button asChild variant="outline" size="xl">
-                <Link to="/contact">Book a Visit</Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={400}>
-            <div className="flex items-center gap-6 mt-10 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2"><Star className="w-4 h-4 text-accent" /> 4.9 Rating</span>
-              <span className="flex items-center gap-2"><Users className="w-4 h-4 text-secondary" /> 500+ Students</span>
-              <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" /> 15+ Years</span>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % images.length);
+    }, 5000); 
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background blobs */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-pastel-pink rounded-full opacity-40 animate-blob blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-pastel-blue rounded-full opacity-40 animate-blob blur-3xl" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pastel-yellow rounded-full opacity-30 animate-blob blur-3xl" style={{ animationDelay: "4s" }} />
+
+      <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ScrollReveal>
+              <span className="pastel-badge bg-pastel-yellow text-accent-foreground mb-4 inline-block">
+                ✨ Admissions Open 2026-27
+              </span>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-[1.05] tracking-tight text-balance">
+                Where Little Minds Grow Into{" "}
+                <span className="gradient-text">Big Dreams</span>
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-lg text-pretty">
+                A warm, nurturing space where your child discovers the joy of learning through play, creativity, and caring guidance.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={300}>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Button asChild size="xl">
+                  <Link to="/admissions">Enroll Now</Link>
+                </Button>
+                <Button asChild variant="outline" size="xl">
+                  <Link to="/contact">Book a Visit</Link>
+                </Button>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={400}>
+              <div className="flex items-center gap-6 mt-10 text-sm text-muted-foreground">
+                <span className="flex items-center gap-2"><Star className="w-4 h-4 text-accent" /> 4.9 Rating</span>
+                <span className="flex items-center gap-2"><Users className="w-4 h-4 text-secondary" /> 500+ Students</span>
+                <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" /> 15+ Years</span>
+              </div>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal delay={200} direction="right">
+            <div className="relative w-full h-full min-h-[560px] sm:min-h-[680px] lg:min-h-[780px]">
+              <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 scale-105" />
+              <img
+                key={currentImg}
+                src={images[currentImg]}
+                alt="Children playing"
+                className="relative rounded-[2rem] shadow-playful w-full h-[560px] sm:h-[680px] lg:h-[780px] object-cover transition-all duration-1000"
+              />
+              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl shadow-medium p-4 flex items-center gap-3 animate-float">
+                <div className="w-10 h-10 rounded-xl bg-pastel-green flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-foreground/70" />
+                </div>
+                <div>
+                  <p className="font-bold text-sm text-foreground">100% Safe</p>
+                  <p className="text-xs text-muted-foreground">CCTV Monitored</p>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
-        <ScrollReveal delay={200} direction="right">
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 scale-105" />
-            <img
-              src={heroImg}
-              alt="Children playing and learning in a colorful preschool classroom"
-              className="relative rounded-[2rem] shadow-playful w-full object-cover aspect-[4/3]"
-            />
-            <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl shadow-medium p-4 flex items-center gap-3 animate-float">
-              <div className="w-10 h-10 rounded-xl bg-pastel-green flex items-center justify-center">
-                <Shield className="w-5 h-5 text-foreground/70" />
-              </div>
-              <div>
-                <p className="font-bold text-sm text-foreground">100% Safe</p>
-                <p className="text-xs text-muted-foreground">CCTV Monitored</p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const features = [
   { icon: Shield, title: "Safe & Secure", desc: "24/7 CCTV surveillance, trained staff, and child-proofed facilities.", color: "bg-pastel-blue" },
