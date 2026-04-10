@@ -20,6 +20,7 @@ import AdminActivities from "./pages/admin/AdminActivities";
 import AdminLogin from "./pages/admin/AdminLogin";
 import Franchise from "./pages/Franchise.tsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.tsx";
+import FloatingContact from "@/components/shared/FloatingContact.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,8 +29,10 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <FloatingContact />
       <BrowserRouter>
         <Routes>
+          {/* <FloatingContact /> */}
           {/* Public routes — Layout wraps all children via Outlet */}
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />

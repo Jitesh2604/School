@@ -1,6 +1,8 @@
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { Eye, Target, Building2, Lightbulb, GraduationCap, Palette } from "lucide-react";
+import PageHero from "@/components/shared/PageHero.tsx";
+import AboutBanner from "@/assets/play_school/img8.jpg";
 
 const stats = [
   { label: "Years of Excellence", value: "15+" },
@@ -18,6 +20,11 @@ const infrastructure = [
 
 const About = () => (
   <>
+    <PageHero
+      title="About Us"
+      backgroundImage={AboutBanner}
+      breadcrumb="Home"
+    />
     {/* Hero */}
     <section className="section-padding pt-28 sm:pt-32">
       <div className="container-wide mx-auto">
