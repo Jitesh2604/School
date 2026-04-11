@@ -144,9 +144,9 @@ export default function Activities() {
     <>
       {/* ✅ Page Hero Banner */}
       <PageHero
-        title="About Us"
+        title="Activities"
         backgroundImage={img}
-        breadcrumb="Home / About Us"
+        breadcrumb=""
       />
       <div className="min-h-screen bg-[#FFFBF5] font-sans">
         {/* ── Hero ── */}

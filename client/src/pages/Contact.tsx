@@ -85,9 +85,9 @@ const Contact = () => {
     <>
       {/* ✅ Page Hero Banner */}
       <PageHero
-        title="Admission"
+        title="Contact Us"
         backgroundImage={ContactBanner}
-        breadcrumb="Admission"
+        breadcrumb=""
       />
       <section className="section-padding pt-28 sm:pt-32">
         <div className="container-wide mx-auto">

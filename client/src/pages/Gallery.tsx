@@ -89,7 +89,7 @@ const Gallery = () => {
       <PageHero
         title="Gallery"
         backgroundImage={GalleryBanner}
-        breadcrumb="Home / Gallery"
+        breadcrumb=""
       />
       <section className="section-padding pt-28 sm:pt-32">
         <div className="container-wide mx-auto">

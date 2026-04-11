@@ -50,7 +50,7 @@ const Programs = () => (
     <PageHero
       title="Our Programs"
       backgroundImage={ProgramsBanner}
-      breadcrumb="Home"
+      breadcrumb=""
     />
     <section className="section-padding pt-28 sm:pt-32">
       <div className="container-wide mx-auto">

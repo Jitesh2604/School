@@ -23,7 +23,7 @@ const About = () => (
     <PageHero
       title="About Us"
       backgroundImage={AboutBanner}
-      breadcrumb="Home"
+      breadcrumb=""
     />
     {/* Hero */}
     <section className="section-padding pt-28 sm:pt-32">
