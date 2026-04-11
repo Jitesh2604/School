@@ -60,9 +60,9 @@ const HeroSection = () => {
             </ScrollReveal>
             <ScrollReveal delay={400}>
               <div className="flex items-center gap-6 mt-10 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2"><Star className="w-4 h-4 text-accent" /> 4.9 Rating</span>
-                <span className="flex items-center gap-2"><Users className="w-4 h-4 text-secondary" /> 500+ Students</span>
-                <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" /> 15+ Years</span>
+                <span className="flex items-center gap-2"><Star className="w-4 h-4 text-accent" /> 6.9 Rating</span>
+                <span className="flex items-center gap-2"><Users className="w-4 h-4 text-secondary" /> 1000+ Students</span>
+                <span className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary" /> 10+ Years</span>
               </div>
             </ScrollReveal>
           </div>
@@ -121,10 +121,11 @@ const FeaturesSection = () => (
 );
 
 const programs = [
-  { title: "Playgroup", age: "1.5 – 2.5 years", desc: "Gentle introduction to structured play, sensory activities, and social skills.", color: "bg-pastel-pink", borderColor: "border-primary/20" },
-  { title: "Nursery", age: "2.5 – 3.5 years", desc: "Building foundational skills through storytelling, art, music, and movement.", color: "bg-pastel-blue", borderColor: "border-secondary/20" },
-  { title: "Junior KG", age: "3.5 – 4.5 years", desc: "Developing literacy, numeracy, and critical thinking through guided activities.", color: "bg-pastel-green", borderColor: "border-green-300/40" },
-  { title: "Senior KG", age: "4.5 – 5.5 years", desc: "School readiness with reading, writing, basic math, and confident communication.", color: "bg-pastel-yellow", borderColor: "border-accent/30" },
+  { title: "Playgroup", age: "1.5 – 2 years", desc: "Gentle introduction to structured play, sensory activities, and social skills.", color: "bg-pastel-pink", borderColor: "border-primary/20" },
+  { title: "Pre Nursery", age: "2 – 3 years", desc: "Building independence and communication through fun activities.", color: "bg-pastel-pink", borderColor: "border-primary/20" },
+  { title: "Nursery", age: "3 – 4 years", desc: "Building foundational skills through storytelling, art, music, and movement.", color: "bg-pastel-blue", borderColor: "border-secondary/20" },
+  { title: "Junior KG", age: "4 – 5 years", desc: "Developing literacy, numeracy, and critical thinking through guided activities.", color: "bg-pastel-green", borderColor: "border-green-300/40" },
+  { title: "Senior KG", age: "5 – 6 years", desc: "School readiness with reading, writing, basic math, and confident communication.", color: "bg-pastel-yellow", borderColor: "border-accent/30" },
 ];
 
 const ProgramsSection = () => (
