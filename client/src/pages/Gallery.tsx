@@ -96,7 +96,7 @@ const Gallery = () => {
           <SectionHeading
             badge="Gallery"
             title="Moments That Make Us Smile"
-            description="A glimpse into the vibrant, joyful world at LittleStars."
+            description="A glimpse into the vibrant, joyful world at Eduveda Early Years."
           />
 
           {/* Filter Tabs */}

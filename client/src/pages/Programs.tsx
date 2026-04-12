@@ -43,6 +43,24 @@ const programs = [
     desc: "Preparing confident, school-ready learners. Senior KG consolidates all foundational skills and builds independence, responsibility, and a love for lifelong learning.",
     benefits: ["Fluent reading and writing", "Advanced math concepts", "Public speaking and presentations", "Environmental awareness", "School readiness assessment"],
   },
+  {
+    id: "creche-daycare",
+    title: "Creche & Daycare",
+    age: "All Ages",
+    color: "bg-pastel-blue",
+    borderColor: "border-secondary/20",
+    desc: "A Home Beyond Home. Our creche provides a safe, hygienic, and loving environment for children of working parents. With a focus on routine, nutrition, and rest, we ensure every child's day is as productive as it is peaceful.",
+    benefits: ["Safe, hygienic environment", "Nutritious meals & healthy snacks", "Structured rest & nap times", "Supervised indoor & outdoor play", "Daily progress updates for parents"],
+  },
+  {
+    id: "after-school",
+    title: "After-School Enrichment",
+    age: "5+ years",
+    color: "bg-pastel-orange",
+    borderColor: "border-orange-300/40",
+    desc: "For older children, we offer a range of creative workshops including art, storytelling, and movement to keep their minds engaged and inspired after regular school hours.",
+    benefits: ["Art & creative workshops", "Storytelling & drama sessions", "Movement & physical activities", "Homework support environment", "Supervised safe space"],
+  },
 ];
 
 const Programs = () => (
@@ -57,7 +75,7 @@ const Programs = () => (
         <SectionHeading
           badge="Our Programs"
           title="Thoughtfully Designed for Every Stage"
-          description="Each program is crafted by early childhood experts to match developmental milestones and nurture your child's natural curiosity."
+          description="From Play School to Creche and After-School Enrichment — each program is crafted by early childhood experts to match developmental milestones and nurture your child's natural curiosity."
         />
         <div className="space-y-12">
           {programs.map((p, i) => (

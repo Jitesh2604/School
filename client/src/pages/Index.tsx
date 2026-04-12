@@ -39,13 +39,13 @@ const HeroSection = () => {
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-[1.05] tracking-tight text-balance">
-                Where Little Minds Grow Into{" "}
-                <span className="gradient-text">Big Dreams</span>
+                Where Curiosity Meets{" "}
+                <span className="gradient-text">Character</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-lg text-pretty">
-                A warm, nurturing space where your child discovers the joy of learning through play, creativity, and caring guidance.
+                A vibrant community dedicated to protecting the magic of childhood — offering a seamless blend of structured early education and compassionate childcare.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={300}>
@@ -93,10 +93,10 @@ const HeroSection = () => {
 };
 
 const features = [
-  { icon: Shield, title: "Safe & Secure", desc: "24/7 CCTV surveillance, trained staff, and child-proofed facilities.", color: "bg-pastel-blue" },
-  { icon: BookOpen, title: "Play-Based Learning", desc: "Curriculum designed around experiential learning and creative exploration.", color: "bg-pastel-pink" },
-  { icon: Trees, title: "Green Campus", desc: "Spacious outdoor play areas, gardens, and nature exploration zones.", color: "bg-pastel-green" },
-  { icon: Star, title: "Expert Educators", desc: "Certified teachers with years of early childhood education experience.", color: "bg-pastel-yellow" },
+  { icon: Shield, title: "Safe & Secure", desc: "24/7 CCTV surveillance, child-proof furniture, and secure entry & exit protocols.", color: "bg-pastel-blue" },
+  { icon: BookOpen, title: "Active Discovery", desc: "We move away from rote learning, focusing on 'learning by doing' through creative exploration.", color: "bg-pastel-pink" },
+  { icon: Trees, title: "Green Campus", desc: "Spacious outdoor play areas, gardens, and nature exploration zones for growing minds.", color: "bg-pastel-green" },
+  { icon: Star, title: "Certified Caregivers", desc: "Passionate professionals trained in early childhood development and first aid.", color: "bg-pastel-yellow" },
 ];
 
 const FeaturesSection = () => (

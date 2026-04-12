@@ -21,7 +21,6 @@ const navLinks = [
   { label: "Activities", to: "/activities" },
   { label: "Contact", to: "/contact" },
   { label: "Admin", to: "/admin" },
-  { label: "Franchise", to: "/franchise" },
 ];
 
 const Navbar = () => {
@@ -52,10 +51,10 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-display font-bold text-xl">L</span>
+            <span className="text-primary-foreground font-display font-bold text-xl">E</span>
           </div>
           <span className="font-display font-bold text-xl text-foreground">
-            Little<span className="text-primary">Stars</span>
+            Eduveda<span className="text-primary"> Early Years</span>
           </span>
         </Link>
 
@@ -99,8 +98,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden lg:block">
+        {/* Desktop CTAs */}
+        <div className="hidden lg:flex items-center gap-2">
+          <Button asChild variant="outline">
+            <Link to="/franchise">Partner With Us</Link>
+          </Button>
           <Button asChild>
             <Link to="/admissions">Enroll Now</Link>
           </Button>
@@ -148,7 +150,10 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <div className="pt-3">
+            <div className="pt-3 space-y-2">
+              <Button asChild variant="outline" className="w-full">
+                <Link to="/franchise">Partner With Us</Link>
+              </Button>
               <Button asChild className="w-full">
                 <Link to="/admissions">Enroll Now</Link>
               </Button>

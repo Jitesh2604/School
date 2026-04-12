@@ -50,14 +50,12 @@ const HeroSection = () => (
         </ScrollReveal>
         <ScrollReveal delay={100}>
           <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance">
-            Start Your Own <span className="gradient-text">Play School</span>
+            Partner with <span className="gradient-text">Eduveda Early Years</span>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={200}>
           <p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-xl text-pretty">
-            Build a meaningful education business in your neighbourhood. We'll
-            guide you every step of the way — from setup to your very first
-            student.
+            Are you passionate about early childhood development? Join the Eduveda Early Years family and bring a world-class, play-based learning environment to your community across Delhi, Noida, Gurgaon, and the wider NCR region.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={300}>
@@ -95,8 +93,8 @@ const benefits = [
   {
     icon: Heart,
     color: "bg-pastel-pink",
-    title: "Trusted Local Brand",
-    desc: "We've built a reputation families trust in our community — and we'll help you do the same in yours.",
+    title: "Proven Business Model",
+    desc: "A resilient and profitable blend of Preschool and Daycare services with a track record families in Delhi NCR trust.",
   },
   {
     icon: IndianRupee,
@@ -108,25 +106,25 @@ const benefits = [
     icon: Users,
     color: "bg-pastel-blue",
     title: "Personal Guidance",
-    desc: "You're never alone. Our team is available to support you through setup, hiring, and day-to-day queries.",
+    desc: "You're never alone. Our team is available to support you through setup, staff recruitment, safety protocols, and daily management.",
   },
   {
     icon: BookOpen,
     color: "bg-pastel-yellow",
-    title: "Child-Focused Curriculum",
-    desc: "A proven, play-based learning approach designed by early childhood educators.",
+    title: "Proprietary Curriculum",
+    desc: "Access to our child-centric, play-based learning frameworks designed by early childhood educators.",
   },
   {
     icon: Lightbulb,
     color: "bg-pastel-purple",
-    title: "Easy Setup Process",
-    desc: "We simplify every step — from classroom layout to opening day — so you can focus on the children.",
+    title: "Marketing Edge",
+    desc: "Benefit from the established Eduveda brand presence in the Delhi NCR market with full marketing support.",
   },
   {
     icon: GraduationCap,
     color: "bg-pastel-orange",
-    title: "Teacher Training",
-    desc: "Practical training sessions for you and your staff to deliver high-quality early education.",
+    title: "Operational Training",
+    desc: "Comprehensive guidance on staff training, safety protocols, and daily operations from day one.",
   },
 ];
 
@@ -136,7 +134,7 @@ const WhyPartnerSection = () => (
       <SectionHeading
         badge="Why Partner With Us"
         title="A Partnership Built on Trust"
-        description="We're a small, hands-on team that genuinely cares about helping partners succeed."
+        description="We're a hands-on team that genuinely cares about helping partners succeed in the Delhi NCR education sector."
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {benefits.map((b, i) => (
@@ -255,8 +253,8 @@ const InvestmentSection = () => (
             icon: MapPin,
             color: "bg-pastel-pink",
             label: "Ideal Location",
-            value: "Residential Area",
-            note: "Near families with young children",
+            value: "Delhi NCR",
+            note: "Delhi, Noida, Gurgaon & surrounding areas",
           },
         ].map((item, i) => (
           <ScrollReveal key={item.label} delay={i * 100}>
@@ -443,6 +441,24 @@ const EnquiryFormSection = () => {
           title="Request a Call Back"
           description="Fill in your details and we'll reach out within 1–2 business days."
         />
+
+        {/* NDA Notice */}
+        <ScrollReveal>
+          <div className="max-w-2xl mx-auto mb-8 rounded-2xl border-2 border-amber-200 bg-amber-50 p-6">
+            <h4 className="font-display font-bold text-base text-foreground mb-2 flex items-center gap-2">
+              🔒 Confidentiality & Non-Disclosure (NDA)
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              At Eduveda Early Years, we value our intellectual property and the integrity of our business model. By submitting a franchise enquiry, you agree to the following:
+            </p>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2"><span className="text-amber-500 shrink-0 mt-0.5">•</span> All shared materials — including financial projections, training manuals, and marketing strategies — will be kept strictly confidential.</li>
+              <li className="flex items-start gap-2"><span className="text-amber-500 shrink-0 mt-0.5">•</span> Information will be used solely to evaluate a potential franchise relationship with Eduveda Early Years.</li>
+              <li className="flex items-start gap-2"><span className="text-amber-500 shrink-0 mt-0.5">•</span> No proprietary data will be disclosed or shared with third parties without prior written consent.</li>
+            </ul>
+          </div>
+        </ScrollReveal>
+
         <div className="max-w-2xl mx-auto">
           {submitted ? (
             <ScrollReveal>

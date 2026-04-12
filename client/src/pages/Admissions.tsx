@@ -159,7 +159,7 @@ export default function Admission() {
           <div className="pointer-events-none absolute -bottom-10 -left-10 h-56 w-56 rounded-full bg-teal-200 opacity-40 blur-3xl" />
           <div className="relative z-10 mx-auto max-w-2xl">
             <span className="mb-4 inline-block rounded-full bg-[#43A047] px-5 py-1.5 text-sm font-semibold tracking-wide text-white shadow-sm">
-              🎒 Admissions Open 2025–26
+              🎒 Admissions Open 2026–27
             </span>
             <h1
               className="mt-4 text-5xl font-extrabold leading-tight text-[#2D2D2D]"
@@ -168,8 +168,7 @@ export default function Admission() {
               Admissions Open
             </h1>
             <p className="mt-4 text-lg text-[#2E7D32]">
-              Enrol your child for a bright future — seats are limited, secure
-              yours today.
+              Enrol your child at Eduveda Early Years — seats are limited, secure yours today.
             </p>
           </div>
         </section>

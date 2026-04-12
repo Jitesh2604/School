@@ -166,8 +166,7 @@ export default function Activities() {
               Our Activities
             </h1>
             <p className="mt-4 text-lg text-[#5D4037]">
-              Fun-filled learning experiences for every child — where curiosity
-              meets joy.
+              At Eduveda Early Years, play is the highest form of research — fun-filled learning experiences where curiosity meets joy.
             </p>
           </div>
         </section>
@@ -323,11 +322,10 @@ export default function Activities() {
             className="text-3xl font-extrabold"
             style={{ fontFamily: "'Nunito', sans-serif" }}
           >
-            Give your child a joyful learning experience 🌈
+            Give your child a joyful learning experience at Eduveda Early Years 🌈
           </h2>
           <p className="mt-3 text-lg text-orange-100">
-            Join our happy family of curious, creative, and confident little
-            learners.
+            Join our happy family of curious, creative, and confident little learners.
           </p>
           <a
             href="/admissions"

@@ -5,10 +5,10 @@ import PageHero from "@/components/shared/PageHero.tsx";
 import AboutBanner from "@/assets/play_school/img8.jpg";
 
 const stats = [
-  { label: "Years of Excellence", value: "15+" },
-  { label: "Happy Students", value: "2,400+" },
-  { label: "Certified Teachers", value: "45+" },
-  { label: "Campus Area (sq ft)", value: "12,000" },
+  { label: "Years of Excellence", value: "10+" },
+  { label: "Happy Students", value: "1,000+" },
+  { label: "Certified Teachers", value: "20+" },
+  { label: "Campus Area (sq ft)", value: "8,000" },
 ];
 
 const infrastructure = [
@@ -32,13 +32,13 @@ const About = () => (
           <ScrollReveal>
             <span className="pastel-badge bg-pastel-green text-foreground/70 mb-3">About Us</span>
             <h1 className="font-display font-bold text-4xl sm:text-5xl text-foreground leading-[1.1] tracking-tight text-balance">
-              Nurturing Curiosity Since 2010
+              Where Curiosity Meets Character
             </h1>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed text-pretty">
-              LittleStars Preschool was founded with a simple belief: every child deserves a joyful, safe, and stimulating environment to discover their unique potential. Our play-based approach blends global best practices with local cultural values.
+              At Eduveda Early Years, we believe that a child's first experience with learning sets the tone for their entire life. We are not just a school or a daycare; we are a vibrant community dedicated to protecting the magic of childhood while building a rock-solid foundation for future success.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed text-pretty">
-              Over the years we've grown from a single classroom to a vibrant campus loved by over 2,400 families. But our core has never changed — small class sizes, heartfelt care, and a curriculum that respects each child's pace.
+              Our dual-purpose facility serves as a premier Play School and Creche, offering a seamless blend of structured early education and compassionate childcare. Our approach combines globally recognised pedagogical methods with a deep understanding of local cultural values.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="right">
@@ -66,7 +66,7 @@ const About = () => (
               </div>
               <h3 className="font-display font-bold text-2xl text-foreground mb-3">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To be the most trusted early learning institution — where children develop into confident, compassionate, and creative individuals ready to embrace the world.
+                To be a sanctuary of growth where every child feels seen, heard, and inspired. We aim to nurture "thinkers and doers" who approach the world with kindness, confidence, and an unquenchable thirst for discovery.
               </p>
             </div>
           </ScrollReveal>
@@ -77,7 +77,7 @@ const About = () => (
               </div>
               <h3 className="font-display font-bold text-2xl text-foreground mb-3">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To provide a holistic, child-centered learning experience that nurtures cognitive, social, emotional, and physical development through play, exploration, and meaningful relationships.
+                To provide a holistic, child-centred learning experience that nurtures cognitive, social, emotional, and physical development. We move away from rote learning, focusing on "learning by doing" — because at Eduveda, play is the highest form of research.
               </p>
             </div>
           </ScrollReveal>
