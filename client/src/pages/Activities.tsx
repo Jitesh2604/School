@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PageHero from "../components/shared/PageHero.tsx";
 import img from ".././assets/play_school/img1.jpg";
 
@@ -139,7 +141,33 @@ const galleryImages = [
   { emoji: "🎉", label: "Festival Fun", color: "bg-orange-100" },
 ];
 
+
+
 export default function Activities() {
+  const [adminActivities, setAdminActivities] = useState<any[]>([]);
+  const [adminLoading, setAdminLoading] = useState(true);
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const fetchAdminActivities = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/activity");
+        if (!res.ok) {
+          throw new Error(`Failed to load admin activities: ${res.status}`);
+        }
+        const data = await res.json();
+        setAdminActivities(data);
+      } catch (err) {
+        console.error("Admin activities fetch error:", err);
+      } finally {
+        setAdminLoading(false);
+      }
+    };
+
+    fetchAdminActivities();
+  }, []);
+
   return (
     <>
       {/* ✅ Page Hero Banner */}
@@ -205,6 +233,59 @@ export default function Activities() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* ── Admin-Supplied Activities ── */}
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <div className="mb-10 text-center">
+            <h2
+              className="text-3xl font-bold text-[#2D2D2D]"
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+            >
+              Latest Activities Added by Admin
+            </h2>
+            <p className="mt-2 text-[#6D6D6D]">
+              These are current school activities managed by the admin panel.
+            </p>
+          </div>
+
+          {adminLoading ? (
+            <div className="rounded-2xl bg-white p-10 text-center text-muted-foreground shadow-sm">
+              Loading admin activities...
+            </div>
+          ) : adminActivities.length > 0 ? (
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {adminActivities.map((item) => (
+                <div
+                  key={item._id}
+                  className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  {item.image && (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="mb-4 h-44 w-full rounded-2xl object-cover"
+                    />
+                  )}
+                  <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                    <h3 className="text-lg font-bold text-[#2D2D2D]">
+                      {item.title}
+                    </h3>
+                    <span className="rounded-full bg-[#E0F2FE] px-3 py-1 text-xs font-semibold text-[#0369A1]">
+                      {item.category}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-[#6D6D6D]">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl bg-white p-10 text-center text-muted-foreground shadow-sm">
+              No additional admin activities available at the moment.
+            </div>
+          )}
         </section>
 
         {/* ── Daily Routine ── */}
@@ -309,7 +390,7 @@ export default function Activities() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <button className="rounded-full border-2 border-[#FF7043] px-8 py-3 font-semibold text-[#FF7043] transition hover:bg-[#FF7043] hover:text-white">
+              <button onClick={() => navigate("/gallery")} className="rounded-full border-2 border-[#FF7043] px-8 py-3 font-semibold text-[#FF7043] transition hover:bg-[#FF7043] hover:text-white">
                 View Full Gallery →
               </button>
             </div>

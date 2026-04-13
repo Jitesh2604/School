@@ -13,7 +13,7 @@ const categories = [
   "Activities",
 ];
 
-const API = import.meta.env.VITE_API_URL;
+const API = "http://localhost:5000/api/gallery";
 
 const Gallery = () => {
   const [filter, setFilter] = useState("All");
@@ -88,7 +88,7 @@ const Gallery = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {filtered.map((item, i) => (
                 <ScrollReveal key={item._id} delay={i * 50}>
-                  <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                  <div className="group relative overflow-hidden rounded-2xl aspect-4/3 cursor-pointer">
                     <img
                       src={item.src}
                       alt={item.alt}
@@ -96,10 +96,13 @@ const Gallery = () => {
                       loading="lazy"
                     />
 
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors duration-300 flex items-end p-4">
-                      <span className="text-sm font-semibold text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute inset-x-0 bottom-0 bg-foreground/80 p-4">
+                      <p className="text-sm font-semibold text-background line-clamp-2">
                         {item.alt}
-                      </span>
+                      </p>
+                      <p className="text-xs text-background/80 mt-1">
+                        {item.category}
+                      </p>
                     </div>
                   </div>
                 </ScrollReveal>
