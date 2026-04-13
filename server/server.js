@@ -24,6 +24,7 @@ app.use('/api/enquiry', enquiryRoutes);
 app.use('/api/admission', admissionRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/activity", activityRoutes);
+app.use("/api/gallery", galleryRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
