@@ -20,7 +20,7 @@ interface Activity {
   createdAt: string;
 }
 
-const API = "http://localhost:5000/api/activity";
+const API = "https://eduveda-backend.onrender.com/api/activity";
 
 const AdminActivities = () => {
   const [data, setData] = useState<Activity[]>([]);

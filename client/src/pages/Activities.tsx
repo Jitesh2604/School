@@ -152,7 +152,7 @@ export default function Activities() {
   useEffect(() => {
     const fetchAdminActivities = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/activity");
+        const res = await fetch("https://eduveda-backend.onrender.com/api/activity");
         if (!res.ok) {
           throw new Error(`Failed to load admin activities: ${res.status}`);
         }

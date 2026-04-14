@@ -13,7 +13,7 @@ const categories = [
   "Activities",
 ];
 
-const API = "http://localhost:5000/api/gallery";
+const API = "https://eduveda-backend.onrender.com/api/gallery";
 
 const Gallery = () => {
   const [filter, setFilter] = useState("All");

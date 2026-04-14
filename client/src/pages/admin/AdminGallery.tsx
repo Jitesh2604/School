@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const categories = ["Classrooms", "Outdoor", "Events", "Art & Craft", "Activities"];
 
-const API = "http://localhost:5000/api/gallery";
+const API = "https://eduveda-backend.onrender.com/api/gallery";
 
 // ⚠️ Replace with your Cloudinary details
 const CLOUD_NAME = "dkmeqlhka";

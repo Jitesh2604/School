@@ -118,7 +118,7 @@ export default function Admission() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/admission", {
+      const res = await fetch("https://eduveda-backend.onrender.com/api/admission", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -14,9 +14,9 @@ interface Enquiry {
 }
 
 const API = {
-  contact: "http://localhost:5000/api/contact",
-  admission: "http://localhost:5000/api/admission",
-  franchise: "http://localhost:5000/api/enquiry",
+  contact: "https://eduveda-backend.onrender.com/api/contact",
+  admission: "https://eduveda-backend.onrender.com/api/admission",
+  franchise: "https://eduveda-backend.onrender.com/api/enquiry",
 };
 
 const AdminDashboard = () => {
