@@ -1,14 +1,94 @@
 import { useEffect, useRef, useState } from "react";
 
 const contacts = [
-  { emoji: "📱", label: "WhatsApp",  sub: "Chat with us",        href: "https://wa.me/919999999999",              bg: "bg-green-50",  border: "border-green-200",  iconBg: "bg-green-100",  strong: "text-green-900",  sub_c: "text-green-400" },
-  { emoji: "📞", label: "Call Us",   sub: "+91 99999 99999",      href: "tel:+919999999999",                       bg: "bg-blue-50",   border: "border-blue-200",   iconBg: "bg-blue-100",   strong: "text-blue-900",   sub_c: "text-blue-400"  },
-  { emoji: "📸", label: "Instagram", sub: "Follow us",            href: "https://instagram.com/youraccount",       bg: "bg-purple-50", border: "border-purple-200", iconBg: "bg-purple-100", strong: "text-purple-900", sub_c: "text-purple-400"},
-  { emoji: "✉️",  label: "Email",     sub: "hello@littlestars.com",href: "mailto:hello@littlestars.com",            bg: "bg-red-50",    border: "border-red-200",    iconBg: "bg-red-100",    strong: "text-red-900",    sub_c: "text-red-400"   },
-  { emoji: "🔵", label: "Facebook",  sub: "Like our page",        href: "https://facebook.com/yourpage",           bg: "bg-blue-50",   border: "border-blue-200",   iconBg: "bg-blue-100",   strong: "text-blue-800",   sub_c: "text-blue-400"  },
-  { emoji: "💬", label: "SMS",       sub: "Send a message",       href: "sms:+919999999999",                       bg: "bg-yellow-50", border: "border-yellow-200", iconBg: "bg-yellow-100", strong: "text-yellow-900", sub_c: "text-yellow-500"},
-  { emoji: "🎥", label: "YouTube",   sub: "Watch videos",         href: "https://youtube.com/@yourchannel",        bg: "bg-rose-50",   border: "border-rose-200",   iconBg: "bg-rose-100",   strong: "text-rose-900",   sub_c: "text-rose-400"  },
-  { emoji: "📍", label: "Location",  sub: "Find us on map",       href: "https://maps.google.com/?q=your+address", bg: "bg-cyan-50",   border: "border-cyan-200",   iconBg: "bg-cyan-100",   strong: "text-cyan-900",   sub_c: "text-cyan-400"  },
+  {
+    emoji: "📱",
+    label: "WhatsApp",
+    sub: "Chat with us",
+    href: "https://wa.me/918448603555",
+    bg: "bg-green-50",
+    border: "border-green-200",
+    iconBg: "bg-green-100",
+    strong: "text-green-900",
+    sub_c: "text-green-400",
+  },
+  {
+    emoji: "📞",
+    label: "Call Us",
+    sub: "+91 8448603555",
+    href: "tel:+918448603555",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    iconBg: "bg-blue-100",
+    strong: "text-blue-900",
+    sub_c: "text-blue-400",
+  },
+  {
+    emoji: "📸",
+    label: "Instagram",
+    sub: "Follow us",
+    href: "https://instagram.com/youraccount",
+    bg: "bg-purple-50",
+    border: "border-purple-200",
+    iconBg: "bg-purple-100",
+    strong: "text-purple-900",
+    sub_c: "text-purple-400",
+  },
+  {
+    emoji: "✉️",
+    label: "Email",
+    sub: "Info@eduvedaearlyyears.com",
+    href: "mailto:Info@eduvedaearlyyears.com",
+    bg: "bg-red-50",
+    border: "border-red-200",
+    iconBg: "bg-red-100",
+    strong: "text-red-900",
+    sub_c: "text-red-400",
+  },
+  {
+    emoji: "🔵",
+    label: "Facebook",
+    sub: "Like our page",
+    href: "https://facebook.com/yourpage",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    iconBg: "bg-blue-100",
+    strong: "text-blue-800",
+    sub_c: "text-blue-400",
+  },
+  {
+    emoji: "💬",
+    label: "SMS",
+    sub: "Send a message",
+    href: "sms:+918448603555",
+    bg: "bg-yellow-50",
+    border: "border-yellow-200",
+    iconBg: "bg-yellow-100",
+    strong: "text-yellow-900",
+    sub_c: "text-yellow-500",
+  },
+  {
+    emoji: "🎥",
+    label: "YouTube",
+    sub: "Watch videos",
+    href: "https://youtube.com/@yourchannel",
+    bg: "bg-rose-50",
+    border: "border-rose-200",
+    iconBg: "bg-rose-100",
+    strong: "text-rose-900",
+    sub_c: "text-rose-400",
+  },
+  {
+    emoji: "📍",
+    label: "Location",
+    sub: "Find us on map",
+    href: "https://goo.gl/maps/gQunL7fsSpn",
+    bg: "bg-cyan-50",
+    border: "border-cyan-200",
+    iconBg: "bg-cyan-100",
+    strong: "text-cyan-900",
+    sub_c: "text-cyan-400",
+  },
 ];
 
 const FloatingContact = () => {
@@ -26,8 +106,10 @@ const FloatingContact = () => {
   }, []);
 
   return (
-    <div ref={wrapRef} className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-
+    <div
+      ref={wrapRef}
+      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
+    >
       {/* Popup card */}
       <div
         className={`w-[265px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 origin-bottom-right ${
@@ -63,12 +145,20 @@ const FloatingContact = () => {
               }`}
               style={{ transitionDelay: open ? `${60 + i * 45}ms` : "0ms" }}
             >
-              <div className={`w-9 h-9 rounded-[10px] ${item.iconBg} flex items-center justify-center text-[18px] flex-shrink-0`}>
+              <div
+                className={`w-9 h-9 rounded-[10px] ${item.iconBg} flex items-center justify-center text-[18px] flex-shrink-0`}
+              >
                 {item.emoji}
               </div>
               <div className="flex-1 min-w-0">
-                <p className={`text-[12px] font-bold ${item.strong} leading-tight`}>{item.label}</p>
-                <p className={`text-[10px] ${item.sub_c} truncate`}>{item.sub}</p>
+                <p
+                  className={`text-[12px] font-bold ${item.strong} leading-tight`}
+                >
+                  {item.label}
+                </p>
+                <p className={`text-[10px] ${item.sub_c} truncate`}>
+                  {item.sub}
+                </p>
               </div>
               <span className="text-gray-300 text-base">›</span>
             </a>
@@ -98,7 +188,6 @@ const FloatingContact = () => {
           </span>
         </button>
       </div>
-
     </div>
   );
 };
