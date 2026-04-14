@@ -75,6 +75,7 @@ const AdminActivities = () => {
 
   /* ── Edit ── */
   const handleEdit = (a: Activity) => {
+    console.log("clicked edit");
     setForm({
       title: a.title,
       description: a.description,
