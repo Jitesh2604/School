@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Lock, Mail, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state as { from?: string } | null;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -34,8 +36,8 @@ const AdminLogin = () => {
     // ✅ Store token
     localStorage.setItem("adminToken", data.token);
 
-    // ✅ Redirect
-    navigate("/admin");
+    // ✅ Redirect back to requested admin page, or dashboard
+    navigate(state?.from ?? "/admin", { replace: true });
 
   } catch (err: unknown) {
     if (err instanceof Error) {

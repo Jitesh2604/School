@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { MessageSquare, Image, FileText, TrendingUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type EnquiryType = "contact" | "admission" | "franchise";
 
@@ -25,6 +25,14 @@ const AdminDashboard = () => {
   const [error, setError] = useState<string | null>(null);
 
   const token = localStorage.getItem("adminToken");
+  const navigate = useNavigate();
+
+  const handleUnauthorized = useCallback(() => {
+    setLoading(false);
+    localStorage.removeItem("adminToken");
+    setError("Session expired. Please login again.");
+    navigate("/admin/login", { replace: true });
+  }, [navigate]);
 
   // ✅ FORMAT DATA
   const formatData = (items: unknown, type: EnquiryType): Enquiry[] => {
@@ -60,59 +68,37 @@ const AdminDashboard = () => {
 
       // Check if token exists
       if (!token) {
-        setError('No authentication token found. Please login first.');
-        setLoading(false);
+        handleUnauthorized();
         return;
       }
 
+      const authHeaders = {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      };
+
       const results = await Promise.allSettled([
-        fetch(API.contact, {
-          headers: { 
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        }),
         fetch(API.admission, {
-          headers: { 
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
+          method: "GET",
+          headers: authHeaders,
         }),
         fetch(API.franchise, {
-          headers: { 
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
+          method: "GET",
+          headers: authHeaders,
         }),
       ]);
 
-      const [contactRes, admissionRes, franchiseRes] = results;
+      const [admissionRes, franchiseRes] = results;
 
-      let contacts: unknown = [];
       let admissions: unknown = [];
       let franchise: unknown = [];
-
-      if (contactRes.status === 'fulfilled') {
-        const response = contactRes.value;
-        if (!response.ok) {
-          console.error(`Contact API error: ${response.status} ${response.statusText}`);
-          if (response.status === 401) {
-            setError('Authentication failed. Please login again.');
-            return;
-          }
-        } else {
-          contacts = await response.json();
-        }
-      } else {
-        console.error('Contact API failed:', contactRes.reason);
-      }
 
       if (admissionRes.status === 'fulfilled') {
         const response = admissionRes.value;
         if (!response.ok) {
           console.error(`Admission API error: ${response.status} ${response.statusText}`);
           if (response.status === 401) {
-            setError('Authentication failed. Please login again.');
+            handleUnauthorized();
             return;
           }
         } else {
@@ -127,7 +113,7 @@ const AdminDashboard = () => {
         if (!response.ok) {
           console.error(`Franchise API error: ${response.status} ${response.statusText}`);
           if (response.status === 401) {
-            setError('Authentication failed. Please login again.');
+            handleUnauthorized();
             return;
           }
         } else {
@@ -138,7 +124,6 @@ const AdminDashboard = () => {
       }
 
       const merged = [
-        ...formatData(contacts, "contact"),
         ...formatData(admissions, "admission"),
         ...formatData(franchise, "franchise"),
       ];
@@ -157,25 +142,19 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, [token, handleUnauthorized]);
 
   useEffect(() => {
     fetchAll();
-    
-    // Listen for localStorage changes (when status is updated)
+
+    // Listen for localStorage changes (when status is updated in another tab)
     const handleStorageChange = () => {
       fetchAll();
     };
 
     window.addEventListener('storage', handleStorageChange);
-    
-    // Refetch data every 2 seconds
-    const interval = setInterval(() => {
-      fetchAll();
-    }, 2000);
 
     return () => {
-      clearInterval(interval);
       window.removeEventListener('storage', handleStorageChange);
     };
   }, [fetchAll]);
@@ -252,6 +231,8 @@ const AdminDashboard = () => {
           <p>Loading...</p>
         ) : error ? (
           <p className="text-red-500">{error}</p>
+        ) : enquiries.length === 0 ? (
+          <p className="text-muted-foreground">No enquiries found.</p>
         ) : (
           <div className="space-y-2">
             {enquiries.slice(0, 4).map((e) => (

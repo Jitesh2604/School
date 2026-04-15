@@ -66,42 +66,27 @@ const AdminEnquiries = () => {
         return;
       }
 
+      const authHeaders = {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      };
+
       const results = await Promise.allSettled([
-        fetch(API.contact, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }),
         fetch(API.admission, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
+          method: "GET",
+          headers: authHeaders,
         }),
         fetch(API.franchise, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
+          method: "GET",
+          headers: authHeaders,
         }),
       ]);
 
-      let contacts: unknown = [];
       let admissions: unknown = [];
       let franchises: unknown = [];
 
       if (results[0].status === 'fulfilled') {
         const response = results[0].value;
-        if (response.ok) {
-          contacts = await response.json();
-        } else {
-          console.error(`Contact API error: ${response.status}`);
-        }
-      }
-
-      if (results[1].status === 'fulfilled') {
-        const response = results[1].value;
         if (response.ok) {
           admissions = await response.json();
         } else {
@@ -109,8 +94,8 @@ const AdminEnquiries = () => {
         }
       }
 
-      if (results[2].status === 'fulfilled') {
-        const response = results[2].value;
+      if (results[1].status === 'fulfilled') {
+        const response = results[1].value;
         if (response.ok) {
           franchises = await response.json();
         } else {
@@ -119,7 +104,6 @@ const AdminEnquiries = () => {
       }
 
       const merged = [
-        ...formatData(contacts, "contact"),
         ...formatData(admissions, "admission"),
         ...formatData(franchises, "franchise"),
       ];

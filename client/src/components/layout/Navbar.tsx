@@ -29,6 +29,8 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const token = localStorage.getItem("adminToken");
+  const adminLink = token ? "/admin" : "/admin/login";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -70,7 +72,7 @@ const Navbar = () => {
               onMouseLeave={() => setDropdown(null)}
             >
               <Link
-                to={link.to}
+                to={link.label === "Admin" ? adminLink : link.to}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200",
                   location.pathname === link.to
@@ -155,7 +157,7 @@ const Navbar = () => {
                   </button>
                 ) : (
                   <Link
-                    to={link.to}
+                    to={link.label === "Admin" ? adminLink : link.to}
                     className={cn(
                       "block px-4 py-3 rounded-xl text-base font-semibold transition-colors",
                       location.pathname === link.to
