@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/SAVE TREE.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -48,16 +49,21 @@ const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent"
+        scrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent",
       )}
     >
       <div className="container-wide mx-auto flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-display font-bold text-xl">E</span>
+          <div className=" rounded-2xl flex items-center justify-center">
+            <img
+              src={logo}
+              alt="Eduveda Logo"
+              className="h-11 w-auto object-contain transition-transform duration-300 hover:scale-110 rounded-2xl"
+            />
           </div>
-          <span className="font-display font-bold text-xl text-foreground">
+
+          <span className="font-display font-bold text-xl text-[#E91E63]">
             Eduveda<span className="text-primary"> Early Years</span>
           </span>
         </Link>
@@ -77,7 +83,7 @@ const Navbar = () => {
                   "px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200",
                   location.pathname === link.to
                     ? "bg-primary/10 text-primary"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                    : "text-foreground/70 hover:text-foreground hover:bg-muted",
                 )}
               >
                 <span className="flex items-center gap-1">
@@ -119,9 +125,19 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           {isOpen ? (
-            <X className={cn("w-6 h-6", scrolled ? "text-foreground" : "text-white")} />
+            <X
+              className={cn(
+                "w-6 h-6",
+                scrolled ? "text-foreground" : "text-white",
+              )}
+            />
           ) : (
-            <Menu className={cn("w-6 h-6", scrolled ? "text-foreground" : "text-white")} />
+            <Menu
+              className={cn(
+                "w-6 h-6",
+                scrolled ? "text-foreground" : "text-white",
+              )}
+            />
           )}
         </button>
       </div>
@@ -137,21 +153,21 @@ const Navbar = () => {
                     type="button"
                     onClick={() =>
                       setMobileDropdown((prev) =>
-                        prev === link.label ? null : link.label
+                        prev === link.label ? null : link.label,
                       )
                     }
                     className={cn(
                       "w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-colors",
                       mobileDropdown === link.label
                         ? "bg-primary/10 text-primary"
-                        : "text-foreground/70 hover:bg-muted"
+                        : "text-foreground/70 hover:bg-muted",
                     )}
                   >
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform",
-                        mobileDropdown === link.label && "rotate-180"
+                        mobileDropdown === link.label && "rotate-180",
                       )}
                     />
                   </button>
@@ -162,7 +178,7 @@ const Navbar = () => {
                       "block px-4 py-3 rounded-xl text-base font-semibold transition-colors",
                       location.pathname === link.to
                         ? "bg-primary/10 text-primary"
-                        : "text-foreground/70 hover:bg-muted"
+                        : "text-foreground/70 hover:bg-muted",
                     )}
                   >
                     {link.label}
