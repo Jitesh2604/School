@@ -27,6 +27,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setDropdown(null);
+    setMobileDropdown(null);
   }, [location]);
 
   return (
@@ -114,7 +116,11 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? (
+            <X className={cn("w-6 h-6", scrolled ? "text-foreground" : "text-white")} />
+          ) : (
+            <Menu className={cn("w-6 h-6", scrolled ? "text-foreground" : "text-white")} />
+          )}
         </button>
       </div>
 
@@ -124,19 +130,44 @@ const Navbar = () => {
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <div key={link.label}>
-                <Link
-                  to={link.to}
-                  className={cn(
-                    "block px-4 py-3 rounded-xl text-base font-semibold transition-colors",
-                    location.pathname === link.to
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground/70 hover:bg-muted"
-                  )}
-                >
-                  {link.label}
-                </Link>
-                {link.children && (
-                  <div className="pl-6 space-y-1">
+                {link.children ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setMobileDropdown((prev) =>
+                        prev === link.label ? null : link.label
+                      )
+                    }
+                    className={cn(
+                      "w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-colors",
+                      mobileDropdown === link.label
+                        ? "bg-primary/10 text-primary"
+                        : "text-foreground/70 hover:bg-muted"
+                    )}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown
+                      className={cn(
+                        "w-4 h-4 transition-transform",
+                        mobileDropdown === link.label && "rotate-180"
+                      )}
+                    />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.to}
+                    className={cn(
+                      "block px-4 py-3 rounded-xl text-base font-semibold transition-colors",
+                      location.pathname === link.to
+                        ? "bg-primary/10 text-primary"
+                        : "text-foreground/70 hover:bg-muted"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+                {link.children && mobileDropdown === link.label && (
+                  <div className="pl-6 space-y-1 mt-1">
                     {link.children.map((child) => (
                       <Link
                         key={child.label}

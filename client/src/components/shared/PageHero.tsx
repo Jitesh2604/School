@@ -8,12 +8,13 @@ interface PageHeroProps {
 
 export default function PageHero({ title, backgroundImage, breadcrumb }: PageHeroProps) {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Full screen image */}
       <img
         src={backgroundImage}
         alt={title}
         className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
       />
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" />

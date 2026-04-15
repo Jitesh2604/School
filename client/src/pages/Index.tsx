@@ -9,6 +9,7 @@ import image1 from '../assets/play_school/img1.jpg';
 import image2 from '../assets/play_school/img2.jpg';
 import image3 from '../assets/play_school/img3.jpg';
 import image4 from '../assets/play_school/img4.jpg';
+import HeroSlider from '../components/shared/HeroSlider';
 
 const HeroSection = () => {
   const images = [heroImg, image1, image2, image3, image4];
@@ -23,7 +24,9 @@ const HeroSection = () => {
   }, [images.length]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <>
+      <HeroSlider />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background blobs */}
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-pastel-pink rounded-full opacity-40 animate-blob blur-3xl" />
       <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-pastel-blue rounded-full opacity-40 animate-blob blur-3xl" style={{ animationDelay: "2s" }} />
@@ -89,6 +92,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
