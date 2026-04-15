@@ -8,15 +8,15 @@ const slides = [
     image: heroImg1, // 👈 replace with your image
     title: "India’s Best Pre School & Daycare",
     subtitle: "Play, Learn And Grow With Best Care.",
-    buttonText: "Be a Partner",
-    buttonLink: "/franchise",
+    buttonText: "Enroll Now",
+    buttonLink: "/admissions",
   },
   {
     image: heroImg2, // 👈 replace with your image
     title: "Start Your Own Preschool Franchise",
     subtitle: "With Partner-First Revenue Model",
-    buttonText: "Enroll Now",
-    buttonLink: "/admissions",
+    buttonText: "Be a Partner",
+    buttonLink: "/franchise",
   },
 ];
 
