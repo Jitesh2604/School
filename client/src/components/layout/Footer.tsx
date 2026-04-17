@@ -52,7 +52,7 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-bold text-background mb-4">Programs</h4>
           <ul className="space-y-2.5">
-            {["Playgroup (1.5–2.5 yrs)", "Nursery (2.5–3.5 yrs)", "Junior KG (3.5–4.5 yrs)", "Senior KG (4.5–5.5 yrs)"].map(
+            {["Playgroup (1.5–2 yrs)", "Pre Nursery (2–3 yrs)", "Nursery (3–4 yrs)", "Junior KG (4–5 yrs)", "Senior KG (5–6 yrs)"].map(
               (item) => (
                 <li key={item}>
                   <Link
@@ -77,11 +77,11 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-3 text-sm text-background/60">
               <Phone className="w-4 h-4 shrink-0 text-primary" />
-              +91 9953187649, +91 09711786460
+              +91 8448603555
             </li>
             <li className="flex items-center gap-3 text-sm text-background/60">
               <Mail className="w-4 h-4 shrink-0 text-primary" />
-              ruchika101@gmail.com
+                Info@eduvedaearlyyears.com
             </li>
           </ul>
         </div>
