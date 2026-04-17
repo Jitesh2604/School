@@ -13,8 +13,12 @@ const navLinks = [
     to: "/programs",
     children: [
       { label: "Playgroup", to: "/programs#playgroup" },
+      { label: "Pre Nursery", to: "/programs#pre-nursery" },
       { label: "Nursery", to: "/programs#nursery" },
-      { label: "Kindergarten", to: "/programs#kindergarten" },
+      { label: "Junior Kindergarten", to: "/programs#junior-kg" },
+      { label: "Senior Kindergarten", to: "/programs#senior-kg" },
+      { label: "Creche & Daycare", to: "/programs#creche-daycare" },
+      { label: "After-School Enrichment", to: "/programs#after-school" },
     ],
   },
   { label: "Admissions", to: "/admissions" },
