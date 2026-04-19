@@ -28,10 +28,10 @@ app.use('/api/admission', admissionRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/activity", activityRoutes);
 app.use("/api/gallery", galleryRoutes);
-
+ 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
-    try {
+    try { 
         await connectDB();            
         console.log(`Server is running on port ${PORT}`);      
     } catch (error) {
