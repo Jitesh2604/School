@@ -188,7 +188,7 @@ const Programs = () => (
         </ScrollReveal>
       </div>
     </section>
-  </>
+  </> 
 );
 
 export default Programs;
