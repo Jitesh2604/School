@@ -33,7 +33,6 @@ export default function HeroSlider() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-
       {/* Slides */}
       {slides.map((slide, i) => (
         <img
@@ -50,28 +49,29 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
+      <div className="absolute inset-0 z-10 flex flex-col items-center text-center text-white px-4">
+        <div className="mt-auto mb-[10vh] flex flex-col items-center">
+          <h1
+            key={slides[current].title}
+            className="text-4xl md:text-6xl font-bold mb-4 animate-fadeUp"
+          >
+            {slides[current].title}
+          </h1>
 
-        <h1
-          key={current}
-          className="text-4xl md:text-6xl font-bold mb-4 animate-fadeUp"
-        >
-          {slides[current].title}
-        </h1>
+          <p
+            key={slides[current].subtitle}
+            className="text-lg md:text-2xl text-white/80 animate-fadeUp delay-200"
+          >
+            {slides[current].subtitle}
+          </p>
 
-        <p
-          key={current + "sub"}
-          className="text-lg md:text-2xl text-white/80 animate-fadeUp delay-200"
-        >
-          {slides[current].subtitle}
-        </p>
-
-        <Link
-          to={slides[current].buttonLink}
-          className="mt-6 px-6 py-3 bg-violet-600 rounded-full font-semibold hover:bg-violet-700 animate-fadeUp delay-300"
-        >
-          {slides[current].buttonText}
-        </Link>
+          <Link
+            to={slides[current].buttonLink}
+            className="mt-6 px-6 py-3 bg-violet-600 rounded-full font-semibold hover:bg-violet-700 animate-fadeUp delay-300"
+          >
+            {slides[current].buttonText}
+          </Link>
+        </div>
       </div>
 
       {/* Dots */}

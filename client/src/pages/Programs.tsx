@@ -5,114 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero.tsx";
 import ProgramsBanner from "@/assets/play_school/img4.jpg";
-
-const programs = [
-  {
-    id: "playgroup",
-    title: "Playgroup",
-    age: "1.5 – 2 years",
-    color: "bg-pastel-pink",
-    borderColor: "border-primary/20",
-    desc: "A gentle and loving transition from home to school. Playgroup focuses on building trust, developing motor skills, and encouraging social interaction through sensory play.",
-    benefits: [
-      "Sensory exploration activities",
-      "Basic motor skill development",
-      "Social interaction and sharing",
-      "Music & movement sessions",
-      "Parent-teacher bonding",
-    ],
-  },
-  {
-    id: "Pre Nursery",
-    title: "Pre Nursery",
-    age: "2 - 3 years",
-    color: "bg-pastel-pink",
-    borderColor: "border-primary/20",
-    desc: "A structured yet playful learning environment where children begin developing early communication, independence, and cognitive skills through guided activities, storytelling, and interactive play.",
-    benefits: [
-      "Early language and communication development",
-      "Introduction to numbers, colors, and shapes",
-      "Improved fine and gross motor skills",
-      "Encourages independence and confidence",
-      "Interactive storytelling and creative play",
-    ],
-  },
-  {
-    id: "nursery",
-    title: "Nursery",
-    age: "3 – 4 years",
-    color: "bg-pastel-blue",
-    borderColor: "border-secondary/20",
-    desc: "Building foundational skills through a balance of structured and free play. Children develop language, creativity, and early literacy in a vibrant setting.",
-    benefits: [
-      "Language and vocabulary building",
-      "Creative arts and storytelling",
-      "Introduction to numbers & shapes",
-      "Outdoor play and fitness",
-      "Emotional regulation skills",
-    ],
-  },
-  {
-    id: "junior-kg",
-    title: "Junior Kindergarten",
-    age: "4 – 5 years",
-    color: "bg-pastel-green",
-    borderColor: "border-green-300/40",
-    desc: "Structured learning begins here. Junior KG develops literacy, numeracy, critical thinking, and collaborative skills through project-based activities.",
-    benefits: [
-      "Phonics and early reading",
-      "Mathematical reasoning",
-      "Science exploration projects",
-      "Team activities and leadership",
-      "Cultural awareness programs",
-    ],
-  },
-  {
-    id: "senior-kg",
-    title: "Senior Kindergarten",
-    age: "5 – 6 years",
-    color: "bg-pastel-yellow",
-    borderColor: "border-accent/30",
-    desc: "Preparing confident, school-ready learners. Senior KG consolidates all foundational skills and builds independence, responsibility, and a love for lifelong learning.",
-    benefits: [
-      "Fluent reading and writing",
-      "Advanced math concepts",
-      "Public speaking and presentations",
-      "Environmental awareness",
-      "School readiness assessment",
-    ],
-  },
-  {
-    id: "creche-daycare",
-    title: "Creche & Daycare",
-    age: "All Ages",
-    color: "bg-pastel-blue",
-    borderColor: "border-secondary/20",
-    desc: "A Home Beyond Home. Our creche provides a safe, hygienic, and loving environment for children of working parents. With a focus on routine, nutrition, and rest, we ensure every child's day is as productive as it is peaceful.",
-    benefits: [
-      "Safe, hygienic environment",
-      "Nutritious meals & healthy snacks",
-      "Structured rest & nap times",
-      "Supervised indoor & outdoor play",
-      "Daily progress updates for parents",
-    ],
-  },
-  {
-    id: "after-school",
-    title: "After-School Enrichment",
-    age: "5+ years",
-    color: "bg-pastel-orange",
-    borderColor: "border-orange-300/40",
-    desc: "For older children, we offer a range of creative workshops including art, storytelling, and movement to keep their minds engaged and inspired after regular school hours.",
-    benefits: [
-      "Art & creative workshops",
-      "Storytelling & drama sessions",
-      "Movement & physical activities",
-      "Homework support environment",
-      "Supervised safe space",
-    ],
-  },
-];
+import { programs } from "@/data/programs";
 
 const Programs = () => (
   <>
@@ -131,6 +24,7 @@ const Programs = () => (
         <div className="space-y-12">
           {programs.map((p, i) => (
             <ScrollReveal key={p.id} delay={i * 60}>
+              <Link to={`/programs/${p.id}`} className="block group">
               <div
                 id={p.id}
                 className={`pastel-card border-2 ${p.borderColor} scroll-mt-24`}
@@ -176,6 +70,7 @@ const Programs = () => (
                   </div>
                 </div>
               </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

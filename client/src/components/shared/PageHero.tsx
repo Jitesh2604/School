@@ -6,7 +6,11 @@ interface PageHeroProps {
   breadcrumb: string;
 }
 
-export default function PageHero({ title, backgroundImage, breadcrumb }: PageHeroProps) {
+export default function PageHero({
+  title,
+  backgroundImage,
+  breadcrumb,
+}: PageHeroProps) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Full screen image */}
@@ -19,17 +23,18 @@ export default function PageHero({ title, backgroundImage, breadcrumb }: PageHer
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" />
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center min-h-screen px-4 text-center text-white">
-        {/* Breadcrumb */}
-        <nav className="mb-4">
-          <Link to="/" className="text-white/80 hover:text-white">
-            {breadcrumb}
-          </Link>
-        </nav>
-        {/* Title */}
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          {title}
-        </h1>
+      <div className="absolute inset-0 z-10 flex flex-col items-center text-center text-white px-4">
+        <div className="mt-auto mb-[10vh] flex flex-col items-center">
+          {/* Breadcrumb */}
+          <nav className="mb-2">
+            <Link to="/" className="text-white/80 hover:text-white">
+              {breadcrumb}
+            </Link>
+          </nav>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-6xl font-bold">{title}</h1>
+        </div>
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
+import ProgramDetails from "./pages/ProgramDetails";
 import Admissions from "./pages/Admissions";
 import Gallery from "./pages/Gallery";
 import Activities from "./pages/Activities";
@@ -37,6 +38,7 @@ const AppContent = () => {
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/:programId" element={<ProgramDetails />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/activities" element={<Activities />} />
