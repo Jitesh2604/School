@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/SAVE TREE.png";
+import logo from "@/assets/play_school/mainLogo.jpg";
 
 const navLinks = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
+  { label: "About Us", to: "/about" },
   {
     label: "Programs",
     to: "/programs",
@@ -24,7 +24,7 @@ const navLinks = [
   { label: "Admissions", to: "/admissions" },
   { label: "Gallery", to: "/gallery" },
   { label: "Activities", to: "/activities" },
-  { label: "Contact", to: "/contact" },
+  { label: "Contact Us", to: "/contact" },
   { label: "Admin", to: "/admin" },
 ];
 
@@ -56,19 +56,19 @@ const Navbar = () => {
         scrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent",
       )}
     >
-      <div className="container-wide mx-auto flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
+      <div className="container-wide mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className=" rounded-2xl flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <img
               src={logo}
               alt="Eduveda Logo"
-              className="h-11 w-auto object-contain transition-transform duration-300 hover:scale-110 rounded-2xl"
+              className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-110 rounded-2xl"
             />
           </div>
 
-          <span className="font-display font-bold text-xl text-[#E91E63]">
-            Eduveda<span className="text-primary"> Early Years</span>
+          <span className="font-display font-bold text-xl text-[#FF009D]">
+            Eduveda<span className="text-[#FF009D]"> Early Years</span>
           </span>
         </Link>
 
@@ -86,8 +86,8 @@ const Navbar = () => {
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200",
                   location.pathname === link.to
-                    ? "bg-primary/10 text-primary"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted",
+                    ? "text-[#067CFF] text-[#FF009D]"
+                    : "text-[#067CFF] hover:text-[#067CFF] hover:text-[#FF009D]",
                 )}
               >
                 <span className="flex items-center gap-1">
